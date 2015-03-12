@@ -1,10 +1,18 @@
 class PlanesController < ApplicationController
   before_action :set_plane, only: [:show, :edit, :update, :destroy]
 
+  def landing
+  end
+
   # GET /planes
   # GET /planes.json
+
   def index
     @planes = Plane.all
+    respond_to do |format|
+      format.html {}
+      format.json {render :json => @planes}
+    end
   end
 
   # GET /planes/1
