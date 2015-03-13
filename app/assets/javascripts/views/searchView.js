@@ -1,27 +1,25 @@
-var app = app || {};
+var app = app || {}; 
 
 app.PostListView = Backbone.View.extend({
-  // new post list view will use this to create a new li
-  tagName: 'li',
+  el: '#main',
   events: {
-    'click': 'showPost'
-    // anytime there is a click anywehre in this view, call a method called showPost
-  },
-  render: function() {
-    // console.log('rendering post list view', this.model);
-
-    // fetch and compile the template 
-    var postListViewTemplate = $('#postListView-template').html();
+    'click #create-plane': 'createPlane', 
+    'click #save-plane': 'showPlane',
+    'click #cancel-plane': 'clearPlane'
+  }, 
+  render: function () {
+    // Fetch and compile the template 
+    var postListViewTemplate = $('#postListView-template').html(); 
     var postListViewHTML = _.template(postListViewTemplate); 
 
-    // set the content of this views element to be the template for this model
-    this.$el.html(postListViewHTML(this.model.toJSON()));
+    // Set the content of this view's element to be the template for this model
+    this.$el.html(postListViewHTML(this.model.toJSON())); 
 
-    // append this view's element to the posts ul 
+    // Append this view's element to the #posts ul on the page 
     $('#posts').append(this.$el); 
-  },
-  showPost: function(){
-    console.log('showing post', this.model.get('title'));
-    app.appRouter.navigate('posts/' + this.model.get('id'), true);
+  }, 
+  showPost: function () {
+    // console.log('showing post', this.model.get('id')); 
+    app.appRouter.navigate('posts/' + this.model.get('id'), true); 
   }
 });
