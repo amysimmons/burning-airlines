@@ -12,24 +12,24 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   // when a request is made to planes, run the allplanes function 
-  createPlanesView: function(){
-   // create an instance of the planes collection 
-    var planesCollection = new app.Planes();
-    // fetches the json data, then when successful, append the planes view into the
-    // container id
-    planesCollection.fetch().then(function(){
-      var planesView = new app.PlanesView({collection: planesCollection});
-      $('#container').html(planesView.render().el);
-    });
-  },
+  // createPlanesView: function(){
+  //  // create an instance of the planes collection 
+  //   var planesCollection = new app.Planes();
+  //   // fetches the json data, then when successful, append the planes view into the
+  //   // container id
+  //   planesCollection.fetch().then(function(){
+  //     var planesView = new app.PlanesView({collection: planesCollection});
+  //     $('#container').html(planesView.render().el);
+  //   });
+  // },
 
-  createFlightsView: function(){
-  var flightsCollection = new app.Flights();
-    flightsCollection.fetch().then(function(){
-      var flightsView = new app.FlightsView({collection: flightsCollection});
-      $('#container').html(flightsView.render().el);
-    });
-  },
+  // createFlightsView: function(){
+  // var flightsCollection = new app.Flights();
+  //   flightsCollection.fetch().then(function(){
+  //     var flightsView = new app.FlightsView({collection: flightsCollection});
+  //     $('#container').html(flightsView.render().el);
+  //   });
+  // },
 
   index: function () {
 
@@ -44,7 +44,7 @@ app.AppRouter = Backbone.Router.extend({
     $('#main').empty();
     console.log('viewPlane'); 
       var plane = app.newPlanes.get(id); 
-      console.log('id in appRouter:', id); 
+      // console.log('id in appRouter:', id); 
       var planeView = new app.PlaneView({model: plane}); 
       planeView.render();  
   },
@@ -53,12 +53,10 @@ app.AppRouter = Backbone.Router.extend({
     $('#main').empty();
     console.log('viewFlight');
       var flight = app.newFlights.get(id); 
-      console.log('id in appRouter:', id); 
+      // console.log('id in appRouter:', id); 
       var flightView = new app.FlightView({model: flight}); 
       flightView.render(); 
-      // var flight = app.newFlights.get(id); 
-      // var flightView = new app.FlightView({model: flight}); 
-      // flightView.render();  
+  
     }, 
 
   viewBook:function(){
@@ -72,6 +70,7 @@ app.AppRouter = Backbone.Router.extend({
   }, 
 
   viewSearch: function () {
+    $('#main').empty();
     console.log('search'); 
   }
 

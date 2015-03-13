@@ -1,20 +1,16 @@
-<a href="#planes">Planes</a>
-<a href="#flights">Flight</a>
-<a href="#admin">Admin</a>
+
 
 <h1>Burning Airlines</h1>
 <div id="main"></div>
 
 
-<script id="appView-template" type="text/x-template">
-  <h2>Recent Posts</h2>
-  <ul id="planes"></ul>
-</script>
-
 <button id='bookSeat'>May's test button</button>
 
 
 <script id="newPlaneView-template" type="text/x-template">
+<a href="#planes">Planes</a>
+<a href="#flights">Flight</a>
+<a href="#admin">Admin</a>
   <h2>Create New Plane</h2> 
   <form> 
       <button id="create-plane">Create Plane</button> 
@@ -37,6 +33,9 @@
 </script>
 
 <script id="newFlightView-template" type="text/x-template">
+<a href="#planes">Planes</a>
+<a href="#flights">Flight</a>
+<a href="#admin">Admin</a>
   <h2>Create New Flight</h2> 
   <form> 
       <button id="create-flight">Create Flight</button> 
@@ -90,34 +89,23 @@
 
 </script>
 
-
-<script id="postListView-template" type="text/x-underscore-template">
-  <h3>{{ title }}</h3>
-</script>
-
-<script id="postView-template" type="text/x-underscore-template">
-  <h2>{{ title }}</h2>
-  <p>{{ content }}</p>
-  <aside id="comments"></aside> 
+<script id="searchView-template" type="text/x-template">
+  <h2>Search</h2> 
   <form> 
+      <button id="search-flights">Create Plane</button> 
     <div>
-      <label for="author">Name:</label><br> 
-      <input id="author"></label> 
+      <label for="from">From:</label><br> 
+      <input id="from"></label> 
     </div> 
     <div>
-      <label for="content">Comment:</label><br>
-      <textarea id="content"></textarea> 
-    </div> 
-      <button>Post comment</button> 
+      <label for="to">To:</label><br>
+      <input type="number" id="to"></input> 
+    </div><br>
+      <button id="save-flight">Save</button> 
+      <button id="cancel-flight">Cancel</button> 
   </form> 
+  <div id="show-flights"></div> 
 
 </script>
 
-<script id="commentView-template" type="text/x-underscore-template">
-  <blockquote>
-    {{ content }}
-    <br>
-    &mdash; <cite>{{ author }}, </cite>{{ created_at }}  
-  </blockquote>
-</script>
 
