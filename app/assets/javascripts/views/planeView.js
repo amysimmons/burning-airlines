@@ -33,7 +33,7 @@ app.PlaneView = Backbone.View.extend({
 
     console.log('show plane function called');
 
-
+    console.log(name, rows, columns); 
 
     var plane = new app.Plane({
       name: name,
