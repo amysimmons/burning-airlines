@@ -1,8 +1,8 @@
 var app = app || {}
 
 // global collection of all blog posts
-app.newPlanes = new app.Planes();
-app.newFlights = new app.Flights();
+app.burningPlanes = new app.Planes();
+app.burningFlights = new app.Flights();
 
 $(document).ready(function(){
  
@@ -17,7 +17,7 @@ $(document).ready(function(){
 
   // app.Planes.fetch().done(function(){
 
-  app.newPlanes.fetch().done(function(){
+  app.burningPlanes.fetch().done(function(){
     // this is global so we can access it inside certain views
     app.appRouter = new app.AppRouter();
 
