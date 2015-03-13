@@ -44,7 +44,6 @@ app.AppRouter = Backbone.Router.extend({
     $('#main').empty();
     console.log('viewPlane'); 
       var plane = app.burningPlanes.get(id); 
-      var plane = app.newPlanes.get(id); 
       var planeView = new app.PlaneView({model: plane}); 
       planeView.render();  
   },
@@ -53,7 +52,6 @@ app.AppRouter = Backbone.Router.extend({
     $('#main').empty();
     console.log('viewFlight');
       var flight = app.burningFlights.get(id); 
-      var flight = app.newFlights.get(id); 
       var flightView = new app.FlightView({model: flight}); 
       flightView.render(); 
   
