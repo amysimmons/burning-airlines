@@ -3,7 +3,7 @@
 var app = app || {};
 
 // global collection of all blog posts
-app.blogPosts = new app.Posts();
+app.newPlanes = new app.Planes();
 
 $(document).ready(function(){
  
@@ -16,7 +16,7 @@ $(document).ready(function(){
     interpolate: /\{\{(.+?)\}\}/g
   };
 
-  app.Planes.fetch().done(function(){
+  app.newPlanes.fetch().done(function(){
 
     // this is global so we can access it inside certain views
     app.appRouter = new app.AppRouter();

@@ -54,10 +54,11 @@ app.PlaneView = Backbone.View.extend({
   render: function(){
     var newPlaneViewTemplate = $('#newPlaneView-template').html();
     var newPlaneViewHTML = _.template(newPlaneViewTemplate);
-    this.$el.html(newPlaneViewHTML(this.model.toJSON()));
+    // this.$el.html(newPlaneViewHTML(this.model.toJSON()));
 
   },
   showPlane: function(event){
+    console.log('showPlane'); 
     event.preventDefault();
     $('#show-plane').empty(); 
     var name = $('#name').val();
@@ -83,7 +84,7 @@ app.PlaneView = Backbone.View.extend({
 
       });
 
-      // commentView.render();
+      showPlane.render();
   }
   // this receives a variable called event or e
   // we want to call event.preventDefault();
