@@ -21,9 +21,7 @@ $(document).ready(function(){
   // app.Planes.fetch().done(function(){
 
   app.newPlanes.fetch().done(function(){
-
-
-  //   // this is global so we can access it inside certain views
+    // this is global so we can access it inside certain views
     app.appRouter = new app.AppRouter();
 
   //   // this kicks off the router and makes the back button and fwd button work
@@ -32,8 +30,9 @@ $(document).ready(function(){
 
   
   // $('#bookSeat').on('click', function (){
+  //   console.log('click is working');
   //   app.appRouter = new app.AppRouter();
-  //   app.appRouter.navigate('flights/2', true);
+  //   app.appRouter.navigate('flights/1', true);
   // });
   
   // Backbone.history.start();
