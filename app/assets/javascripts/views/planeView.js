@@ -45,18 +45,18 @@ app.PlaneView = Backbone.View.extend({
 
           $row.prepend($('<div></div>').addClass('row-letter').text( rowLetters[index++])   ).appendTo($('#show-plane'));
 
-        });
+    });
 
-          $seatNumRow = $('<div></div>').addClass('seat-num-row');
+    $seatNumRow = $('<div></div>').addClass('seat-num-row');
 
-          count = 1
+    count = 1
 
-          _(columns).times(function(){
-            $seatNum = $('<div></div>').addClass('seat-num');
-            $seatNum.text(count ++);
-            $seatNum.appendTo($seatNumRow);
-            $seatNumRow.appendTo($row);
-          });
+    _(columns).times(function(){
+      $seatNum = $('<div></div>').addClass('seat-num');
+      $seatNum.text(count ++);
+      $seatNum.appendTo($seatNumRow);
+      $seatNumRow.appendTo($row);
+    });
 
   }
  
