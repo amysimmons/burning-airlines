@@ -79,8 +79,4 @@ app.PlaneView = Backbone.View.extend({
 
   }
 
-
-
-
- 
 });

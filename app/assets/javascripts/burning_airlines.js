@@ -1,9 +1,8 @@
 var app = app || {}
 
-
 // global collection of all blog posts
 app.newPlanes = new app.Planes();
-
+app.newFlights = new app.Flights();
 
 $(document).ready(function(){
  
@@ -15,8 +14,6 @@ $(document).ready(function(){
   _.templateSettings = {
     interpolate: /\{\{(.+?)\}\}/g
   };
-
-
 
   // app.Planes.fetch().done(function(){
 

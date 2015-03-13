@@ -40,16 +40,21 @@ app.AppRouter = Backbone.Router.extend({
 
 
   viewPlane: function (id) {
+    $('#main').empty();
     console.log('viewPlane'); 
       var plane = app.newPlanes.get(id); 
       console.log('id in appRouter:', id); 
       var planeView = new app.PlaneView({model: plane}); 
       planeView.render();  
-
   },
 
   viewFlight: function (id) {
-    console.log('viewFlight'); 
+    $('#main').empty();
+    console.log('viewFlight');
+      var flight = app.newFlights.get(id); 
+      console.log('id in appRouter:', id); 
+      var flightView = new app.FlightView({model: flight}); 
+      flightView.render(); 
       // var flight = app.newFlights.get(id); 
       // var flightView = new app.FlightView({model: flight}); 
       // flightView.render();  

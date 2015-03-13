@@ -34,6 +34,11 @@ app.AppView = Backbone.View.extend({
       var planeView = new app.planeView({model: post});
       planeView.render();
     });
+    this.collection.each(function(flight){
+      console.log(plane);
+      var flightView = new app.flightView({model: post});
+      flightView.render();
+    });
   }
 });
 
