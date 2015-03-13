@@ -44,3 +44,7 @@
   height: 10px;
   text-transform: uppercase;
 }
+
+.booked {
+  background-color: red;
+}

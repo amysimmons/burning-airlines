@@ -1,22 +1,46 @@
 var app = app || {};
 
 app.BookingView = Backbone.View.extend({
-  el: '#seatsView',
+  el: '#main',
   // events: {
   //   'click button': 'submitComment'
   // },
   render: function(){
-    debugger;
-    console.log( this )
-    // var bookingViewTemplate = $('#bookingView-template').html();
-    // var bookingViewHTML = _.template(bookingViewTemplate);
-    // this.$el.html(bookingViewHTML( this.modle );
+    console.log( this.model.rows, this.model.columns );
+    var bookingViewTemplate = $('#bookingView-template').html();
+    var bookingViewHTML = _.template(bookingViewTemplate);
+    this.$el.html(bookingViewHTML( this.model ));
+
+    var rowLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var index = 0;
+    var plane = this.model;
+    var columnCount = 1; 
+
+    _(plane.rows).times(function() {
+      $row = $("<div/>").addClass('row');
+      _(plane.columns).times(function() {
+        $seat = $('<div/>').addClass('seat');
+        // $seat.attr('id', rowLetters[index++]);
+        $seat.appendTo($row);
+      });
+      $row.prepend($('<div/>').addClass('row-letter').text( rowLetters[index++])).appendTo($('#seatsView'));
+    });
+      $seatNumRow = $('<div/>').addClass('seat-num-row');
+
+      _(plane.columns).times(function(){
+        $seatNum = $('<div/>').addClass('seat-num');
+        $seatNum.text(columnCount ++);
+        $seatNum.appendTo($seatNumRow);
+        $seatNumRow.prependTo($('#seatsView'));
+      });
+
+    }
 
 
 
     // this.comments = new app.Comments(this.model.get('id'));
     // this.comments.fetch();
-  },
+
   // submitComment: function(event){
   //   event.preventDefault();
   //   var author = $('#author').val();
