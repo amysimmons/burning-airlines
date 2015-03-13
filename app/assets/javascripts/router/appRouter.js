@@ -1,5 +1,6 @@
 
 
+
 var app = app || {}
 
 app.AppRouter = Backbone.Router.extend({
@@ -7,7 +8,8 @@ app.AppRouter = Backbone.Router.extend({
   routes: {
     "": "index", 
     "planes": "viewPlane",
-    "flights": "viewFlight"
+    "flights": "viewFlight", 
+    'flights/:id':'viewBook'
   },
 
   index: function () {
@@ -32,6 +34,16 @@ app.AppRouter = Backbone.Router.extend({
       var flight = app.newFlights.get(id); 
       var flightView = new app.FlightView({model: flight}); 
       flightView.render();  
-  }
+    }, 
+
+  viewBook:function(){
+    console.log('viewing book');
+    // var post = app.blogPosts.get(id);
+    // console.log(post.toJSON());
+    // var postView = new app.PostView({model: post});
+    // postView.render();
+  } 
+
+
 
 });
