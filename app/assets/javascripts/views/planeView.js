@@ -14,6 +14,8 @@ app.PlaneView = Backbone.View.extend({
 
     this.$el.html(newPlaneViewHTML); 
     
+    this.planes = new app.Planes()
+
   },
 
   showPlane: function(event){

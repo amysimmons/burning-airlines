@@ -11,41 +11,21 @@ app.FlightView = Backbone.View.extend({
   render: function(){
     console.log('rendering FlightView collection:', this.collection); 
     var newFlightViewHTML = $('#newFlightView-template').html();
-
-    // var planes = Plane.all
-
-    // _.each(planes, function(){
-
-    //   $name = plane.name
-    //   $option = $('<option></option>');
-    //   $option.text()
-
-    // });
-
+    var flightsViewHTML = $('#flightsView-template').html();
+    var flightsListViewHTML = $('#flightsListView-template').html();
 
     this.$el.html(newFlightViewHTML); 
-    
+    $('#show-flights').html(flightsViewHTML)
+    $('.flight-single').html(flightsListViewHTML)
+
+    for (var i = 0; i < app.burningPlanes.models.length; i++) {
+      var name = app.burningPlanes.models[i].attributes.name
+      $option = $('<option></option>');
+      $option.text(name);
+      $option.appendTo($('.choose-plane'));
+    };
+
   },
-
-
-
-
-
-    // var generateDepartureForm = function(subwayLines){
-    //     $.each(subwayLines, function(key, value){
-            
-    //         var lineOn = key
-    //         var subwayLine = $('<optgroup label='+lineOn+'>').addClass('subway-line');
-    //         subwayLine.appendTo('.departure');
-
-    //         for (var i = 0; i < value.length; i++){
-    //             var stopOn = value[i];
-    //             var subwayStation = $("<option value='" + stopOn + "'>" + stopOn + "</option>").addClass('subway-station');
-    //             subwayStation.appendTo(subwayLine);
-    //         };
-    //     });
-    // }
-    // generateDepartureForm(subwayLines);
 
   createflight: function(event){
     console.log('creaitng lfight');
