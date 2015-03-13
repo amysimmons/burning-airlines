@@ -1,44 +1,3 @@
-// var app = app || {};
-
-// app.PostView = Backbone.View.extend({
-//   el: '#main',
-//   events: {
-//     'click button': 'submitComment'
-//   },
-//   render: function(){
-//     var postViewTemplate = $('#postView-template').html();
-//     var postViewHTML = _.template(postViewTemplate);
-//     this.$el.html(postViewHTML(this.model.toJSON()));
-
-//     this.comments = new app.Comments(this.model.get('id'));
-//     this.comments.fetch();
-//   },
-//   submitComment: function(event){
-//     // debugger;
-//     event.preventDefault();
-//     var author = $('#author').val();
-//     var content = $('#content').val();
-
-//     var comment = new app.Comment({
-//       author: author,
-//       content: content,
-//       post_id: this.model.get('id')
-//     });
-//     // debugger;
-//       var view = this;
-//       comment.save().done(function(newComment){
-//         // view.comments.add(newComment);
-//         view.comments.fetch();
-
-//       });
-
-//       // commentView.render();
-//   }
-//   // this receives a variable called event or e
-//   // we want to call event.preventDefault();
-// // comment.save won't work until we have the url for a single comment
-
-// });
 
 
 var app = app || {};
@@ -53,14 +12,19 @@ app.PlaneView = Backbone.View.extend({
   },
 
   render: function(){
-    var newPlaneViewTemplate = $('#newPlaneView-template').html();
-    var newPlaneViewHTML = _.template(newPlaneViewTemplate);
-    this.$el.html(newPlaneViewHTML(this.model.toJSON()));
+    console.log('rendering PlaneView collection:', this.collection); 
+    var newPlaneViewHTML = $('#newPlaneView-template').html();
+
+    this.$el.html(newPlaneViewHTML); 
+
+    // this.collection.each(function (post) {
+    //   var postListView = new app.PostListView({model: post}); 
+    //   postListView.render(); 
+    // }); 
+    
 
   },
   showPlane: function(event){
-    
-    console.log('show plane function called');
 
     event.preventDefault();
     $('#show-plane').empty(); 
@@ -69,14 +33,12 @@ app.PlaneView = Backbone.View.extend({
     var columns = $('#columns').val();
 
 
-    name.appendTo('#main');
-
+    console.log(name, rows, columns); 
 
     var plane = new app.Plane({
       name: name,
       rows: rows,
-      columns: columns,
-      plane_id: this.model.get('id')
+      columns: columns
     });
 
       var view = this;
@@ -86,7 +48,7 @@ app.PlaneView = Backbone.View.extend({
 
       });
 
-      // commentView.render();
+      showPlane.render();
   }
   // this receives a variable called event or e
   // we want to call event.preventDefault();
