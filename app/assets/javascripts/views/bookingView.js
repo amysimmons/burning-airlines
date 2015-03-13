@@ -1,16 +1,18 @@
 var app = app || {};
 
 app.BookingView = Backbone.View.extend({
-  tagName: 'table',
+  el: '#seatsView',
   // events: {
   //   'click button': 'submitComment'
   // },
   render: function(){
-    var bookingViewTemplate = $('#bookingView-template').html();
-    var bookingViewHTML = _.template(bookingViewTemplate);
-    this.$el.html(bookingViewHTML(this.model.toJSON()));
+    debugger;
+    console.log( this )
+    // var bookingViewTemplate = $('#bookingView-template').html();
+    // var bookingViewHTML = _.template(bookingViewTemplate);
+    // this.$el.html(bookingViewHTML( this.modle );
 
-    
+
 
     // this.comments = new app.Comments(this.model.get('id'));
     // this.comments.fetch();
