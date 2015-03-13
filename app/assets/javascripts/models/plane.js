@@ -16,6 +16,7 @@ var app = app || {};
 // our models as per rails
 // the defaults are similar to a schema
 app.Plane = Backbone.Model.extend({
+  urlRoot: '/planes', 
   defaults: {
     name: '',
     rows: 0, 
