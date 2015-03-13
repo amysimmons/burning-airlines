@@ -1,5 +1,3 @@
-
-
 var app = app || {};
 
 app.PlaneView = Backbone.View.extend({
@@ -22,8 +20,8 @@ app.PlaneView = Backbone.View.extend({
     //   postListView.render(); 
     // }); 
     
-
   },
+
   showPlane: function(event){
 
     event.preventDefault();
@@ -31,33 +29,35 @@ app.PlaneView = Backbone.View.extend({
     var name = $('#name').val();
     var rows = $('#rows').val();
     var columns = $('#columns').val();
+    var rowLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    var index = _.indexOf(rowLetters, 'a')
 
+    $('<p/>').text(name).addClass('plane-name').appendTo('#show-plane');
 
-    console.log(name, rows, columns); 
+     _(rows).times(function(){
 
-    var plane = new app.Plane({
-      name: name,
-      rows: rows,
-      columns: columns
-    });
+          $row = $('<div></div>').addClass('row');
 
-      var view = this;
-      plane.save().done(function(){
-        // view.comments.add(newComment);
-        view.plane.fetch();
+            _(columns).times(function(){
+              $seat = $('<div></div>').addClass('seat');
+              $seat.appendTo($row);
+            });
 
-      });
+          $row.prepend($('<div></div>').addClass('row-letter').text( rowLetters[index++])   ).appendTo($('#show-plane'));
 
-      showPlane.render();
+        });
+
+          $seatNumRow = $('<div></div>').addClass('seat-num-row');
+
+          count = 1
+
+          _(columns).times(function(){
+            $seatNum = $('<div></div>').addClass('seat-num');
+            $seatNum.text(count ++);
+            $seatNum.appendTo($seatNumRow);
+            $seatNumRow.appendTo($row);
+          });
+
   }
-  // this receives a variable called event or e
-  // we want to call event.preventDefault();
-// comment.save won't work until we have the url for a single comment
-
+ 
 });
-
-var showSinglePlane = function(){
-  console.log('showing plane');
-}
-// showSinglePlane();
-
