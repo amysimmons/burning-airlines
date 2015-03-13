@@ -12,24 +12,34 @@ app.BookingView = Backbone.View.extend({
     this.$el.html(bookingViewHTML( this.model ));
 
     var rowLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    var index = 0;
     var plane = this.model;
-    var columnCount = 1; 
+    var rowindex = 0;
+
+
+    // var index = 0;
 
     _(plane.rows).times(function() {
       $row = $("<div/>").addClass('row');
+      var row = rowLetters[rowindex++]
+      var column = 1
       _(plane.columns).times(function() {
+        if (column > 4) {
+          column == 0;
+        };
         $seat = $('<div/>').addClass('seat');
-        // $seat.attr('id', rowLetters[index++]);
+        $seat.attr('id',  row + (column++));
         $seat.appendTo($row);
       });
-      $row.prepend($('<div/>').addClass('row-letter').text( rowLetters[index++])).appendTo($('#seatsView'));
+      var index = 0;
+      $row.prepend($('<div/>').addClass('row-letter').text(row )).appendTo($('#seatsView'));
     });
-      $seatNumRow = $('<div/>').addClass('seat-num-row');
 
+      
+      $seatNumRow = $('<div/>').addClass('seat-num-row');
+      var column = 1;
       _(plane.columns).times(function(){
         $seatNum = $('<div/>').addClass('seat-num');
-        $seatNum.text(columnCount ++);
+        $seatNum.text(column++);
         $seatNum.appendTo($seatNumRow);
         $seatNumRow.prependTo($('#seatsView'));
       });
