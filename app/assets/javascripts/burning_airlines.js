@@ -16,7 +16,7 @@ $(document).ready(function(){
     interpolate: /\{\{(.+?)\}\}/g
   };
 
-  app.blogPosts.fetch().done(function(){
+  app.Planes.fetch().done(function(){
 
     // this is global so we can access it inside certain views
     app.appRouter = new app.AppRouter();
