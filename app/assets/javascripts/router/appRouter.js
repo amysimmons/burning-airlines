@@ -56,11 +56,11 @@ app.AppRouter = Backbone.Router.extend({
     }, 
 
   viewBook:function(){
-
-    // console.log('viewing book');
+    debugger;
+    console.log('viewing book');
     var plane = {name: "348", rows: 24, columns: 4};
     var flight = {flight_number: 17, origin:"SYD", destination:"BNE", date: 2014}
-    // console.log(plane);
+    console.log(plane);
     var bookingView = new app.BookingView({model: plane});
     bookingView.render();
   }
