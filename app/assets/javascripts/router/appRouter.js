@@ -7,7 +7,8 @@ app.AppRouter = Backbone.Router.extend({
     "": "index", 
     "planes": "viewPlane",
     "flights": "viewFlight", 
-    'flights/:id':'viewBook'
+    "flights/:id":"viewBook", 
+    "search": "viewSearch"
   },
 
   // when a request is made to planes, run the allplanes function 
@@ -63,6 +64,10 @@ app.AppRouter = Backbone.Router.extend({
     console.log(plane);
     var bookingView = new app.BookingView({model: plane});
     bookingView.render();
+  }, 
+
+  viewSearch: function () {
+    console.log('search'); 
   }
 
 
