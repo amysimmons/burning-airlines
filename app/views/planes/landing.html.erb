@@ -2,6 +2,7 @@
 <a href="#flights">Flight</a>
 <a href="#admin">Admin</a>
 
+<h1>Burning Airlines</h1>
 <div id="main"></div>
 
 
@@ -52,20 +53,18 @@
       <input id="destination"></input> 
     </div> 
     <div>
-      <label for="destination">Destination:</label><br>
-      <input id="destination"></input> 
-    </div> 
-    <div>
-      <label for="date">FlightDate:</label><br>
+      <label for="date">Flight date:</label><br>
       <input id="date"></input> 
     </div> 
     <div>
-      <label for="plane-id">Plane:</label><br>
-      <input id="plane-id"></input> 
+      <label for="name">Plane name:</label><br>
+      <select class="plane-name"></select>
+      <input id="name"></input> 
     </div> 
-      <button id="save-flight">Save</button> 
-      <button id="cancel-flight">Cancel</button> 
+    <button id="save-flight">Save</button> 
+    <button id="cancel-flight">Cancel</button> 
   </form> 
+  <div id="show-flights"></div> 
 </script>
 
 
