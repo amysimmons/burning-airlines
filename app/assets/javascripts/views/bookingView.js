@@ -2,9 +2,9 @@ var app = app || {};
 
 app.BookingView = Backbone.View.extend({
   el: '#main',
-  // events: {
-  //   'click button': 'submitComment'
-  // },
+  events: {
+    "click button": 'saveBooking'
+  },
   render: function(){
     console.log( this.model.rows, this.model.columns );
     var bookingViewTemplate = $('#bookingView-template').html();
@@ -44,32 +44,31 @@ app.BookingView = Backbone.View.extend({
         $seatNumRow.prependTo($('#seatsView'));
       });
 
-    }
+    },
 
 
+  saveBooking: function(event){
+    event.preventDefault();
+    var seatid = $('#seatNumber').val();
+    var $seat = $('#'+seatid);
+    $seat.addClass('booked');
 
-    // this.comments = new app.Comments(this.model.get('id'));
-    // this.comments.fetch();
+    // var content = $('#content').val();
 
-  // submitComment: function(event){
-  //   event.preventDefault();
-  //   var author = $('#author').val();
-  //   var content = $('#content').val();
+    // var comment = new app.Comment({
+    //   author: author,
+    //   content: content,
+    //   post_id: this.model.get('id')
+    // });
+    // var view = this;
+    // comment.save().done(function(newComment){
+    //   // view.comments.add(newComment);
+    //   view.comments.fetch();
 
-  //   var comment = new app.Comment({
-  //     author: author,
-  //     content: content,
-  //     post_id: this.model.get('id')
-  //   });
-      // var view = this;
-      // comment.save().done(function(newComment){
-      //   // view.comments.add(newComment);
-      //   view.comments.fetch();
+    // });
 
-      // });
-
-      // commentView.render();
-  // }
+    // commentView.render();
+  }
   // this receives a variable called event or e
   // we want to call event.preventDefault();
 // comment.save won't work until we have the url for a single comment
