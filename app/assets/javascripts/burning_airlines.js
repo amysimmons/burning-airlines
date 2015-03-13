@@ -24,7 +24,7 @@ $(document).ready(function(){
     // this is global so we can access it inside certain views
     app.appRouter = new app.AppRouter();
 
-    // this kicks off the router and makes the back button and fwd button work
+  //   // this kicks off the router and makes the back button and fwd button work
     Backbone.history.start();
   });
 
