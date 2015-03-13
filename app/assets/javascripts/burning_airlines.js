@@ -1,32 +1,32 @@
 // console.log(_, Backbone, jQuery);
 
-var app = app || {};
+// var app = app || {};
 
-// global collection of all blog posts
-app.blogPosts = new app.Posts();
+// // global collection of all blog posts
+// app.blogPosts = new app.Posts();
 
-$(document).ready(function(){
+// $(document).ready(function(){
  
-  if($('#main').length === 0) {
-    return;
-  };
+//   if($('#main').length === 0) {
+//     return;
+//   };
 
-  // replace <%erb style with handlebars style {{}}
-  _.templateSettings = {
-    interpolate: /\{\{(.+?)\}\}/g
-  };
+//   // replace <%erb style with handlebars style {{}}
+//   _.templateSettings = {
+//     interpolate: /\{\{(.+?)\}\}/g
+//   };
 
-  app.Planes.fetch().done(function(){
+//   app.Planes.fetch().done(function(){
 
-    // this is global so we can access it inside certain views
-    app.appRouter = new app.AppRouter();
+//     // this is global so we can access it inside certain views
+//     app.appRouter = new app.AppRouter();
 
-    // this kicks off the router and makes the back button and fwd button work
-    Backbone.history.start();
+//     // this kicks off the router and makes the back button and fwd button work
+//     Backbone.history.start();
 
-  });
-  // this .done means backbone wont do anything until we have loaded all of the blog posts
-});
+//   });
+//   // this .done means backbone wont do anything until we have loaded all of the blog posts
+// });
 
 // when we visit the route with no text in it
 // that goes to the index function

@@ -48,7 +48,8 @@ app.PlaneView = Backbone.View.extend({
   events: {
     'click #create-plane': 'createPlane', 
     'click #save-plane': 'showPlane',
-    'click #cancel-plane': 'clearPlane'
+    'click #cancel-plane': 'clearPlane',
+    'click .test':'showSinglePlane'
   },
 
   render: function(){
@@ -58,13 +59,15 @@ app.PlaneView = Backbone.View.extend({
 
   },
   showPlane: function(event){
+    
+    console.log('show plane function called');
+
     event.preventDefault();
     $('#show-plane').empty(); 
     var name = $('#name').val();
     var rows = $('#rows').val();
     var columns = $('#columns').val();
 
-    console.log('show plane function called');
 
     name.appendTo('#main');
 
@@ -90,4 +93,9 @@ app.PlaneView = Backbone.View.extend({
 // comment.save won't work until we have the url for a single comment
 
 });
+
+var showSinglePlane = function(){
+  console.log('showing plane');
+}
+// showSinglePlane();
 
