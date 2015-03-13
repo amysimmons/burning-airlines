@@ -28,6 +28,7 @@ app.AppRouter = Backbone.Router.extend({
       var flightsView = new app.FlightsView({collection: flightsCollection});
       $('#container').html(flightsView.render().el);
     });
+  },
 
   index: function () {
 

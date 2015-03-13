@@ -33,7 +33,7 @@ app.BookingView = Backbone.View.extend({
       // });
 
       // commentView.render();
-  }
+  // }
   // this receives a variable called event or e
   // we want to call event.preventDefault();
 // comment.save won't work until we have the url for a single comment

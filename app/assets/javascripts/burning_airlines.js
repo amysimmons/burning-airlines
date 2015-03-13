@@ -1,4 +1,4 @@
-var app = app || {};
+var app = app || {}
 
 
 // global collection of all blog posts
@@ -28,7 +28,7 @@ $(document).ready(function(){
 
   //   // this kicks off the router and makes the back button and fwd button work
   //   Backbone.history.start();
-  // });
+  });
 
   
   // $('#bookSeat').on('click', function (){
