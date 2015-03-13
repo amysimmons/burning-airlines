@@ -5,9 +5,9 @@ var app = app || {};
 // this is really just part of our model, but is like a fancy array
 // for storying a collection of models
 // uses underscore.js to give us activerecordish methods like .get 
-app.Posts = Backbone.Collection.extend({
-  url: '/posts',
-  model: app.Post,
+app.Planes = Backbone.Collection.extend({
+  url: '/planes',
+  model: app.Plane,
   // initialize: function(){
   //   console.log('posts cllection initilized');
   //   this.on('add', function(post){

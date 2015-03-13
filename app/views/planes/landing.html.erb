@@ -1,5 +1,67 @@
+<a href="#planes">Planes</a>
+<a href="#flights">Flight</a>
+<a href="#admin">Admin</a>
+
 <div id="main"></div>
 
 <button id='bookSeat'>May's test button</button>
 
-</div>
+<script id="newPlaneView-template" type="text/x-template">
+  <h2>Create New Plane</h2> 
+  <form> 
+      <button id="create-plane">Create Plane</button> 
+    <div>
+      <label for="name">Name:</label><br> 
+      <input id="name"></label> 
+    </div> 
+    <div>
+      <label for="rows">Row:</label><br>
+      <input id="rows"></input> 
+    </div> 
+    <div>
+      <label for="columns">Columns:</label><br>
+      <input id="columns"></input> 
+    </div> 
+      <button id="save-plane">Save</button> 
+      <button id="cancel-plane">Cancel</button> 
+  </form> 
+</script>
+
+<script id="showPlaneView-template" type="text/x-template">
+
+  <h3>{{ name }}</h3> 
+  <div id="show-plane"></div> 
+</script>
+
+
+
+<script id="postListView-template" type="text/x-underscore-template">
+  <h3>{{ title }}</h3>
+</script>
+
+<script id="postView-template" type="text/x-underscore-template">
+  <h2>{{ title }}</h2>
+  <p>{{ content }}</p>
+  <aside id="comments"></aside> 
+  <form> 
+    <div>
+      <label for="author">Name:</label><br> 
+      <input id="author"></label> 
+    </div> 
+    <div>
+      <label for="content">Comment:</label><br>
+      <textarea id="content"></textarea> 
+    </div> 
+      <button>Post comment</button> 
+  </form> 
+
+</script>
+
+<script id="commentView-template" type="text/x-underscore-template">
+  <blockquote>
+    {{ content }}
+    <br>
+    &mdash; <cite>{{ author }}, </cite>{{ created_at }}  
+  </blockquote>
+</script>
+
