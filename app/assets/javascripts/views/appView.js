@@ -29,10 +29,27 @@ app.AppView = Backbone.View.extend({
     console.log('rendering AppView', this.collection);
     var appViewHTML = $('#appView-template').html();
     this.$el.html(appViewHTML);
-    this.collection.each(function(post){
-      // console.log(post);
-      var postListView = new app.PostListView({model: post});
-      postListView.render();
+    this.collection.each(function(plane){
+      console.log(plane);
+      var planeView = new app.planeView({model: post});
+      planeView.render();
     });
   }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

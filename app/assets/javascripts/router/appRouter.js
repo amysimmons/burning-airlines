@@ -4,8 +4,9 @@ var app = app || {}
 app.AppRouter = Backbone.Router.extend({
 
   routes: {
-    "planes": "createPlanesView",
-    "flights": "createFlightsView",
+    "": "index", 
+    "planes": "viewPlane",
+    "flights": "viewFlight", 
     'flights/:id':'viewBook'
   },
 
@@ -27,10 +28,34 @@ app.AppRouter = Backbone.Router.extend({
       var flightsView = new app.FlightsView({collection: flightsCollection});
       $('#container').html(flightsView.render().el);
     });
+
+  index: function () {
+
+    // var appView = new app.AppView({collection: app.newPlanes}); 
+    // appView.render(); 
+
+    console.log('index'); 
   },
 
 
+  viewPlane: function (id) {
+    console.log('viewPlane'); 
+      var plane = app.newPlanes.get(id); 
+      console.log('id in appRouter:', id); 
+      var planeView = new app.PlaneView({model: plane}); 
+      planeView.render();  
+
+  },
+
+  viewFlight: function (id) {
+    console.log('viewFlight'); 
+      // var flight = app.newFlights.get(id); 
+      // var flightView = new app.FlightView({model: flight}); 
+      // flightView.render();  
+    }, 
+
   viewBook:function(){
+
     // console.log('viewing book');
     var plane = {name: "348", rows: 24, columns: 4};
     var flight = {flight_number: 17, origin:"SYD", destination:"BNE", date: 2014}
@@ -38,5 +63,6 @@ app.AppRouter = Backbone.Router.extend({
     var bookingView = new app.BookingView({model: plane});
     bookingView.render();
   }
+
 
 });

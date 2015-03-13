@@ -1,10 +1,18 @@
 <a href="#planes">Planes</a>
 <a href="#flights">Flight</a>
 <a href="#admin">Admin</a>
+<a class="test" href="">test</a>
 
 <div id="main"></div>
 
+
+<script id="appView-template" type="text/x-template">
+  <h2>Recent Posts</h2>
+  <ul id="planes"></ul>
+</script>
+
 <button id='bookSeat'>May's test button</button>
+
 
 <script id="newPlaneView-template" type="text/x-template">
   <h2>Create New Plane</h2> 
@@ -16,12 +24,12 @@
     </div> 
     <div>
       <label for="rows">Row:</label><br>
-      <input id="rows"></input> 
+      <input type="number" id="rows"></input> 
     </div> 
     <div>
       <label for="columns">Columns:</label><br>
-      <input id="columns"></input> 
-    </div> 
+      <input type="number" id="columns"></input> 
+    </div><br>
       <button id="save-plane">Save</button> 
       <button id="cancel-plane">Cancel</button> 
   </form> 
@@ -31,6 +39,39 @@
 
   <h3>{{ name }}</h3> 
   <div id="show-plane"></div> 
+</script>
+
+<script id="newFlightView-template" type="text/x-template">
+  <h2>Create New Flight</h2> 
+  <form> 
+      <button id="create-flight">Create Flight</button> 
+    <div>
+      <label for="flight-number">Flight number:</label><br> 
+      <input id="flight-number"></label> 
+    </div> 
+    <div>
+      <label for="origin">Origin:</label><br>
+      <input id="origin"></input> 
+    </div> 
+    <div>
+      <label for="destination">Destination:</label><br>
+      <input id="destination"></input> 
+    </div> 
+    <div>
+      <label for="destination">Destination:</label><br>
+      <input id="destination"></input> 
+    </div> 
+    <div>
+      <label for="date">FlightDate:</label><br>
+      <input id="date"></input> 
+    </div> 
+    <div>
+      <label for="plane-id">Plane:</label><br>
+      <input id="plane-id"></input> 
+    </div> 
+      <button id="save-flight">Save</button> 
+      <button id="cancel-flight">Cancel</button> 
+  </form> 
 </script>
 
 

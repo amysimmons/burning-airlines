@@ -1,5 +1,10 @@
 var app = app || {};
 
+
+// global collection of all blog posts
+app.newPlanes = new app.Planes();
+
+
 $(document).ready(function(){
  
   if($('#main').length === 0) {
@@ -12,7 +17,11 @@ $(document).ready(function(){
   };
 
 
+
   // app.Planes.fetch().done(function(){
+
+  app.newPlanes.fetch().done(function(){
+
 
   //   // this is global so we can access it inside certain views
   //   app.appRouter = new app.AppRouter();
@@ -22,13 +31,12 @@ $(document).ready(function(){
   // });
 
   
-  $('#bookSeat').on('click', function (){
-    app.appRouter = new app.AppRouter();
-    app.appRouter.navigate('flights/2', true);
-  });
+  // $('#bookSeat').on('click', function (){
+  //   app.appRouter = new app.AppRouter();
+  //   app.appRouter.navigate('flights/2', true);
+  // });
   
-  Backbone.history.start();
+  // Backbone.history.start();
 });
-
 
 
