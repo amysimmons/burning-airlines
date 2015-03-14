@@ -13,37 +13,34 @@ app.FlightView = Backbone.View.extend({
     console.log('rendering FlightView collection:', this.collection); 
     var newFlightViewHTML = $('#newFlightView-template').html();
     var flightsViewHTML = $('#flightsView-template').html();
-
     this.$el.html(newFlightViewHTML); 
     $('#show-flights').html(flightsViewHTML);
-
 
     app.burningFlights.fetch().done(function () {
 
     var flightListViewTemplate = $('#flightListView-template').html();
     var flightListViewHTML = _.template(flightListViewTemplate);
+
+      // iterates through all flights and gets plane name for flight table
       for (var i = 0; i < app.burningFlights.models.length; i++) {
 
         var currentPlane = app.burningPlanes.get(app.burningFlights.models[i].attributes.plane_id);
         if (currentPlane) {
-
           var name = currentPlane.attributes.name;
-
           app.burningFlights.models[i].attributes.name = name;
-          
           var compiledHTML = flightListViewHTML(app.burningFlights.models[i].attributes)
           $("thead.thead").append(compiledHTML);
         }
 
       };
-    });
 
+    });
+    // iterates through all planes and get plane names for the select dropdown
     for (var i = 0; i < app.burningPlanes.models.length; i++) {
       var name = app.burningPlanes.models[i].attributes.name;
       var $dataid = app.burningPlanes.models[i].attributes.id;
       $option = $("<option data-id=\"" + $dataid + "\"></option>");
       $option.text(name);
- 
       $option.appendTo($('.choose-plane'));
     };
 
@@ -68,8 +65,10 @@ app.FlightView = Backbone.View.extend({
       plane_id: id
     });
 
-    flight.save()
-    console.log(flight); 
+    var view = this;
+    flight.save().done(function () {
+      view.render();
+    });
 
   }, 
 
@@ -82,7 +81,6 @@ app.FlightView = Backbone.View.extend({
 
 
 }
-
 
 });
 
