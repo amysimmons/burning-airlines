@@ -40,11 +40,11 @@ app.BookingView = Backbone.View.extend({
       $seatNum.appendTo($seatNumRow);
       $seatNumRow.prependTo($('#seatsView'));
     });
-
-    setTimeout(this.fetchData(), 10000);
+    var object = this;
+    setInterval(function () {object.fetchData()}, 1000);
   },
 
-  fetchData: function(event) {
+  fetchData: function() {
     this.reservations = new app.Reservations();
     this.reservations.fetch({
               data: {
