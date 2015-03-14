@@ -4,9 +4,15 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    @flights = Flight.all
-    plane = Plane.find params[:plane_id]
-    render :json => plane.flights
+    # If I have params search
+    if params[:search]
+      binding.pry
+    else
+    # If I don't
+      @flights = Flight.all
+      plane = Plane.find params[:plane_id]
+      render :json => plane.flights
+    end
   end
 
   # GET /search

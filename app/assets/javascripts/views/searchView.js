@@ -9,7 +9,6 @@ app.SearchView = Backbone.View.extend({
   }, 
   render: function () {
     // Fetch and compile the template 
-    console.log('searchViewTemplate'); 
    
     var searchViewHTML = $('#searchView-template').html(); 
 
@@ -17,8 +16,18 @@ app.SearchView = Backbone.View.extend({
 
   }, 
 
-  showSearch: function () {
-    
+  createSearch: function () {
+    event.preventDefault();
+
+    var from = $("#from").val(),
+        to = $("#to").val();
+
+    app.burningFlights.fetch({ 
+      data: { 
+        from: from,
+        to: to 
+      }
+    })  
   
   }
 });
