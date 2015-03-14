@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150313001506) do
+ActiveRecord::Schema.define(version: 20150313233941) do
 
   create_table "flights", force: :cascade do |t|
     t.integer  "flight_number"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20150313001506) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "seat"
   end
 
   create_table "users", force: :cascade do |t|

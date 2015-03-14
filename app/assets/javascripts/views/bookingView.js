@@ -15,8 +15,6 @@ app.BookingView = Backbone.View.extend({
     var plane = this.model;
     var rowindex = 0;
 
-    // var index = 0;
-
     _(plane.rows).times(function() {
       $row = $("<div/>").addClass('row');
       var row = rowLetters[rowindex++]
@@ -56,31 +54,20 @@ app.BookingView = Backbone.View.extend({
 
   saveBooking: function(event) {
       event.preventDefault();
+      debugger;
       var user_name = $('#user_name').val();
       var seatid = $('#seatNumber').val();
       var $seat = $('#' + seatid);
       $seat.addClass('booked').html(user_name);
       $('#seatNumber, #user_name').val('') ; 
 
-
-      // var content = $('#content').val();
-
-      // var comment = new app.Comment({
-      //   author: author,
-      //   content: content,
-      //   post_id: this.model.get('id')
-      // });
-      // var view = this;
-      // comment.save().done(function(newComment){
-      //   // view.comments.add(newComment);
-      //   view.comments.fetch();
-
-      // });
-
-      // commentView.render();
+      var reservation = new app.Reservation ({
+        flight_id: 1,
+        user_name: user_name,
+        seat: seatid
+      });  
+      reservation.save();
     }
-    // this receives a variable called event or e
-    // we want to call event.preventDefault();
-    // comment.save won't work until we have the url for a single comment
+   
 
 });

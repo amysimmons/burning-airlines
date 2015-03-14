@@ -7,8 +7,10 @@
 #  user_id    :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  seat       :string
 #
 
 class Reservation < ActiveRecord::Base
+  belongs_to :flight
   belongs_to :user
 end
