@@ -14,4 +14,8 @@
 
 class Flight < ActiveRecord::Base
   belongs_to :plane
+
+  def self.search(query)
+    where("origin ilike ? AND destination ilike ? AND date > now()", "%#{query}%", "%#{query}%", "%#{query}%") 
+  end
 end
