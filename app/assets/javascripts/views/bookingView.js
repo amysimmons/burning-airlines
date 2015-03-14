@@ -3,7 +3,7 @@ var app = app || {};
 app.BookingView = Backbone.View.extend({
   el: '#main',
   events: {
-    "click button": 'saveBooking'
+    "click #selectSeat": 'saveBooking'
   },
   render: function() {
     console.log(this.model.rows, this.model.columns);
@@ -41,20 +41,24 @@ app.BookingView = Backbone.View.extend({
       $seatNumRow.prependTo($('#seatsView'));
     });
 
+    setTimeout(this.fetchData(), 10000);
   },
 
-  // refreshSeatSelections: function() {
-  //   makeCallToServer().done(function(response) {
-  //     response.seatsSelected.forEach(function(seatNumber) {
-  //       $('#' + seatNumber).addClass('booked')
-  //     });
-  //     setTimeout(refreshSeatSelections, 1000);
-  //   });
-  // },
+  fetchData: function(event) {
+    this.reservations = new app.Reservations();
+    this.reservations.fetch({
+              data: {
+                flight_id: 1 
+                  }
+           }).done(function (result) {
+              for (var i = 0; i < result.length; i++) {
+                $('#'+ result[i][1]).addClass('booked').html(result[i][0]);
+              };
+           });
+  },
 
   saveBooking: function(event) {
       event.preventDefault();
-      debugger;
       var user_name = $('#user_name').val();
       var seatid = $('#seatNumber').val();
       var $seat = $('#' + seatid);
