@@ -1,25 +1,26 @@
 var app = app || {}; 
 
-app.PostListView = Backbone.View.extend({
+app.SearchView = Backbone.View.extend({
   el: '#main',
   events: {
-    'click #create-plane': 'createPlane', 
-    'click #save-plane': 'showPlane',
-    'click #cancel-plane': 'clearPlane'
+    'click #create-search': 'createSearch', 
+    'click #save-search': 'showSearch',
+    'click #cancel-search': 'clearSearch'
   }, 
   render: function () {
     // Fetch and compile the template 
-    var postListViewTemplate = $('#postListView-template').html(); 
-    var postListViewHTML = _.template(postListViewTemplate); 
+    var searchViewTemplate = $('#searchView-template').html(); 
+    var searchViewHTML = _.template(searchViewTemplate); 
 
     // Set the content of this view's element to be the template for this model
-    this.$el.html(postListViewHTML(this.model.toJSON())); 
+    // this.$el.html(searchViewHTML(this.model.toJSON())); 
 
     // Append this view's element to the #posts ul on the page 
-    $('#posts').append(this.$el); 
+    $('#show-search').append(this.$el); 
   }, 
+
   showPost: function () {
     // console.log('showing post', this.model.get('id')); 
-    app.appRouter.navigate('posts/' + this.model.get('id'), true); 
+    app.appRouter.navigate('flights/' + this.model.get('id'), true); 
   }
 });
