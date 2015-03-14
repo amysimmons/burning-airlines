@@ -4,27 +4,15 @@ class FlightsController < ApplicationController
   # GET /flights
   # GET /flights.json
   def index
-    # If I have params search
-    if params[:search]
-      binding.pry
+    if params[:origin] && params[:destination]
+       @flights = Flight.where(:origin => params[:origin]) && Flight.where(:destination => params[:destination])
+       render :json => @flights
     else
-    # If I don't
       @flights = Flight.all
-      plane = Plane.find params[:plane_id]
       render :json => @flights
     end
   end
 
-  # GET /search
-  # GET /search.json
-
-  def search
-      if params[:search]
-        @flights = Flight.search(params[:search]).order("created_at DESC")
-      else
-        @flights = Flight.all.order('created_at DESC')
-      end
-  end
 
   # GET /flights/1
   # GET /flights/1.json
