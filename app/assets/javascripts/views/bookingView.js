@@ -3,7 +3,8 @@ var app = app || {};
 app.BookingView = Backbone.View.extend({
   el: '#main',
   events: {
-    "click #selectSeat": 'saveBooking'
+    "click #selectSeat": 'saveBooking',
+    "click .seat-big": 'selectSeatByClick'
   },
   render: function() {
     console.log(this.model.rows, this.model.columns);
@@ -57,6 +58,13 @@ app.BookingView = Backbone.View.extend({
            });
   },
 
+  selectSeatByClick: function(event){
+      $('.seat-selected').removeClass('seat-selected');
+      $(event.currentTarget).addClass('seat-selected');
+      seatNum = event.currentTarget.id
+      $('#seatNumber').val(seatNum);
+  },
+
   saveBooking: function(event) {
       event.preventDefault();
       var user_name = $('#user_name').val();
@@ -72,6 +80,5 @@ app.BookingView = Backbone.View.extend({
       });  
       reservation.save();
     }
-   
 
 });
