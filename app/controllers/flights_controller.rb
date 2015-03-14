@@ -7,6 +7,17 @@ class FlightsController < ApplicationController
     @flights = Flight.all
   end
 
+  # GET /search
+  # GET /search.json
+
+  def search
+      if params[:search]
+        @flights = Flight.search(params[:search]).order("created_at DESC")
+      else
+        @flights = Flight.all.order('created_at DESC')
+      end
+  end
+
   # GET /flights/1
   # GET /flights/1.json
   def show
@@ -24,7 +35,7 @@ class FlightsController < ApplicationController
   # POST /flights
   # POST /flights.json
   def create
-    flight = Plane.create flight_params 
+    flight = Flight.create flight_params 
     render :json => flight
   end
 

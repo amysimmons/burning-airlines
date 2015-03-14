@@ -58,8 +58,7 @@
     <div>
       <label for="name">Plane name:</label><br>
       <select class="choose-plane"></select>
-      <input id="name"></input> 
-    </div> 
+    </div><br> 
     <button id="save-flight">Save</button> 
     <button id="cancel-flight">Cancel</button> 
   </form> 
@@ -117,15 +116,15 @@
 
 <script id="searchView-template" type="text/x-template">
   <h2>Search</h2> 
-  <form> 
+  <form role="search"> 
       <button id="create-search">Create Plane</button> 
     <div>
       <label for="from">From:</label><br> 
-      <input id="from"></label> 
+      <input id="from" :search, params[:search]></label> 
     </div> 
     <div>
       <label for="to">To:</label><br>
-      <input type="number" id="to"></input> 
+      <input id="to" :search, params[:search]></input> 
     </div><br>
       <button id="save-search">Save</button> 
       <button id="cancel-search">Cancel</button> 
@@ -133,5 +132,7 @@
   <div id="show-search"></div> 
 
 </script>
+
+
 
 
