@@ -69,17 +69,6 @@ app.SearchView = Backbone.View.extend({
 
       });  
 
-
-
-
-      //   var compiledHTML = searchListViewHTML(app.burningFlights.models[i].attributes)
-      //   $("thead.thead-search").append(compiledHTML);
-      // }
-
-    // });
-
-
-  // }
 }
 
 }); 
