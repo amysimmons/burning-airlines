@@ -3,20 +3,46 @@ var app = app || {};
 app.FlightView = Backbone.View.extend({
   el: '#main',
   events: {
-    'click #create-flight': 'createflight', 
-    'click #save-flight': 'showflight',
-    'click #cancel-flight': 'clearflight'
+    'click #create-flight': 'createFlight', 
+    'click #save-flight': 'showFlight',
+    'click #cancel-flight': 'clearFlight'
   },
 
   render: function(){
     console.log('rendering FlightView collection:', this.collection); 
     var newFlightViewHTML = $('#newFlightView-template').html();
     var flightsViewHTML = $('#flightsView-template').html();
-    var flightsListViewHTML = $('#flightsListView-template').html();
+    // var flightsListViewHTML = $('#flightListView-template').html();
 
     this.$el.html(newFlightViewHTML); 
-    $('#show-flights').html(flightsViewHTML)
-    $('.flight-single').html(flightsListViewHTML)
+    $('#show-flights').html(flightsViewHTML);
+
+    // var flightListViewTemplate = $('#flightListView-template').html();
+    // var flightListViewHTML = _.template(flightListViewTemplate);
+
+    // this.$el.html(flightListViewHTML(app.burningPlanes.models.toJSON()));
+    // this.$el.appendTo('.single-flight');
+
+    for (var i = 0; i < app.burningPlanes.models.length; i++) {
+
+    //   // app.burningPlanes.models[i].attributes
+
+      // flight_number = app.burningPlanes.models[i].attributes.flight_number
+
+
+      // flightListViewHTML(app.burningFlights.models[i].attributes).appendTo($('.single-flight'));
+
+
+    // <td>{{date}}</td>
+    // <td>{{flight_number}}</td> 
+    // <td>{{origin}} + ' > ' + {{destination}}</td>
+
+      // var name = app.burningPlanes.models[i].attributes.name
+      // $option = $('<option></option>');
+      // $option.text(name);
+      // $option.appendTo($('.choose-plane'));
+    };
+
 
     for (var i = 0; i < app.burningPlanes.models.length; i++) {
       var name = app.burningPlanes.models[i].attributes.name
@@ -27,16 +53,16 @@ app.FlightView = Backbone.View.extend({
 
   },
 
-  createflight: function(event){
+  createFlight: function(event){
     console.log('creaitng lfight');
 
     event.preventDefault();
 
-    var flightNumber = $('#flight-number').val();
+    var flightNumber = $('#flight_number').val();
     var origin = $('#origin').val();
     var destination = $('#destination').val();
     var date = $('#date').val();
-    var name = $('#name').val();
+    var name = $(".choose-plane").val();
 
     var flight = new app.Flight({
       flight_number: flightNumber, 
@@ -47,7 +73,7 @@ app.FlightView = Backbone.View.extend({
     });
 
     flight.save()
-    console.log(flight.toJSON()); 
+    console.log(flight); 
 
   }
 

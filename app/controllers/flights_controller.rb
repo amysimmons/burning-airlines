@@ -5,6 +5,8 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     @flights = Flight.all
+    plane = Plane.find params[:plane_id]
+    render :json => plane.flights
   end
 
   # GET /flights/1
@@ -24,7 +26,10 @@ class FlightsController < ApplicationController
   # POST /flights
   # POST /flights.json
   def create
-    flight = Plane.create flight_params 
+    binding.pry
+    flight = Flight.create flight_params 
+    # plane = Plane.find params[:plane_id]
+    # render :json => plane.flights
     render :json => flight
   end
 
@@ -61,5 +66,7 @@ class FlightsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def flight_params
       params.require(:flight).permit(:flight_number, :origin, :destination, :date, :plane_id)
+      # params.fetch(:plane, {}).permit(:name)
+      # params.require(:plane).permit(:name)
     end
 end

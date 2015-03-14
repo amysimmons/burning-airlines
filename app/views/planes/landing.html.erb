@@ -40,8 +40,8 @@
   <form> 
       <button id="create-flight">Create Flight</button> 
     <div>
-      <label for="flight-number">Flight number:</label><br> 
-      <input id="flight-number"></label> 
+      <label for="flight_number">Flight number:</label><br> 
+      <input id="flight_number"></label> 
     </div> 
     <div>
       <label for="origin">Origin:</label><br>
@@ -77,19 +77,19 @@
     <th>Plane</th>
     <th>Seats</th>
   </tr>
-  <tr class="flight-single">
-  </tr>
 </table>
+<table class="single-flight"></table>
 </script>
 
 
 <script id="flightListView-template" type="text/x-underscore-template">
-
+  <tr>
     <td>{{date}}</td>
     <td>{{flight_number}}</td> 
     <td>{{origin}} + ' > ' + {{destination}}</td>
     // <td>{{name}}</td> 
     // <td>'seats'</td>
+  </tr>
 </script>
 
 
