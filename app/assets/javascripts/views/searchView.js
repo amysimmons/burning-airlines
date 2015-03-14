@@ -5,8 +5,10 @@ app.SearchView = Backbone.View.extend({
   events: {
     'click #create-search': 'createSearch',
     'click #save-search': 'showSearch',
-    'click #cancel-search': 'clearSearch'
+    'click #cancel-search': 'clearSearch', 
+    'click a': 'showSeats'
   },
+
   render: function() {
     // Fetch and compile the template 
 
@@ -42,8 +44,6 @@ app.SearchView = Backbone.View.extend({
 
 
 
-
-
     var from = $("#from").val(),
       to = $("#to").val();
 
@@ -69,6 +69,47 @@ app.SearchView = Backbone.View.extend({
 
       });  
 
+
+
+
+
+}, 
+
+showSeats: function (result) {
+  var id = result.currentTarget.id 
+
+  app.appRouter.navigate('flights/'+ id, true); 
+
+
+
+
 }
 
 }); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

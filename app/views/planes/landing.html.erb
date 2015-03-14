@@ -83,7 +83,7 @@
 <script id="flightListView-template" type="text/x-underscore-template">
   <tr>
     <td>{{date}}</td>
-    <td>{{flight_number}}</td> 
+    <td><a id="{{id}}" data-flight-id = {{ id }}>{{flight_number}}</a></td> 
     <td>{{origin}} > {{destination}}</td>
     <td>{{name}}</td> 
     <td>'seats'</td>
@@ -137,7 +137,7 @@
 <script id="searchListView-template" type="text/x-underscore-template">
   <tr>
     <td>{{date}}</td>
-    <td>{{flight_number}}</td> 
+    <td><a id="{{id}}" data-flight-id = {{ id }}>{{flight_number}}</a></td> 
     <td>{{origin}} > {{destination}}</td>
     <td>{{name}}</td> 
   </tr>
