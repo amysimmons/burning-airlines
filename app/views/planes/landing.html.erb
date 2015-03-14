@@ -53,12 +53,11 @@
     </div> 
     <div>
       <label for="date">Flight date:</label><br>
-      <input id="date"></input> 
+      <input id="date" type="date"></input> 
     </div> 
     <div>
-      <label for="name">Plane name:</label><br>
-      <select class="choose-plane"></select>
-      <input id="name"></input> 
+      <label for="plane_id">Plane name:</label><br>
+      <select class="choose-plane" id="plane_id"></select>
     </div> 
     <button id="save-flight">Save</button> 
     <button id="cancel-flight">Cancel</button> 
@@ -70,15 +69,14 @@
 <script id="flightsView-template" type="text/x-underscore-template">
   <h3>Flights</h3>
   <table>
-  <tr>
+  <thead class="thead">
     <th>Date</th>
     <th>Flight</th>
     <th>From > To</th>
     <th>Plane</th>
     <th>Seats</th>
-  </tr>
+  </thead>
 </table>
-<table class="single-flight"></table>
 </script>
 
 
@@ -86,9 +84,9 @@
   <tr>
     <td>{{date}}</td>
     <td>{{flight_number}}</td> 
-    <td>{{origin}} + ' > ' + {{destination}}</td>
-    // <td>{{name}}</td> 
-    // <td>'seats'</td>
+    <td>{{origin}} > {{destination}}</td>
+    <td>{{name}}</td> 
+    <td>'seats'</td>
   </tr>
 </script>
 

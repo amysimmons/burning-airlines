@@ -7,7 +7,7 @@
 #  origin        :string
 #  destination   :string
 #  date          :datetime
-#  plane         :integer
+#  plane_id      :integer
 #  created_at    :datetime
 #  updated_at    :datetime
 #
