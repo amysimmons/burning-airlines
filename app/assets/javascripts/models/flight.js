@@ -16,7 +16,7 @@ var app = app || {};
 // our models as per rails
 // the defaults are similar to a schema
 app.Flight = Backbone.Model.extend({
-  urlRoot: '/flights', 
+  urlRoot: '/flights',
   defaults: {
     flight_number: 00,
     origin: '', 

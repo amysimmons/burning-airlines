@@ -113,10 +113,10 @@
 
 </script>
 
-<script id="searchView-template" type="text/x-template">
+<script id="newSearchView-template" type="text/x-template">
   <h2>Search</h2> 
   <form role="search"> 
-      <button id="create-search">Create Plane</button> 
+      <button id="create-search">Search</button> 
     <div>
       <label for="from">From:</label><br> 
       <input id="from" :search, params[:search]></label> 
@@ -129,8 +129,30 @@
       <button id="cancel-search">Cancel</button> 
   </form> 
   <div id="show-search"></div> 
-
 </script>
+
+<script id="searchView-template" type="text/x-underscore-template">
+  <h3>Search Results</h3>
+  <table>
+  <thead class="thead-search">
+    <th>Date</th>
+    <th>Flight</th>
+    <th>From > To</th>
+    <th>Plane</th>
+  </thead>
+</table>
+</script>
+
+<script id="searchListView-template" type="text/x-underscore-template">
+  <tr>
+    <td>{{date}}</td>
+    <td>{{flight_number}}</td> 
+    <td>{{origin}} > {{destination}}</td>
+    <td>{{name}}</td> 
+  </tr>
+</script>
+
+
 
 
 

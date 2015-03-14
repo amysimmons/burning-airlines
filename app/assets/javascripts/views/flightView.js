@@ -25,8 +25,11 @@ app.FlightView = Backbone.View.extend({
 
         var currentPlane = app.burningPlanes.get(app.burningFlights.models[i].attributes.plane_id);
         if (currentPlane) {
+
           var name = currentPlane.attributes.name;
+
           app.burningFlights.models[i].attributes.name = name;
+          
           var compiledHTML = flightListViewHTML(app.burningFlights.models[i].attributes)
           $("thead.thead").append(compiledHTML);
         }
@@ -46,7 +49,7 @@ app.FlightView = Backbone.View.extend({
   },
 
   createFlight: function(event){
-    console.log('creaitng lfight');
+    console.log('creating flight');
 
     event.preventDefault();
 
