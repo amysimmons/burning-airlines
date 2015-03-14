@@ -11,7 +11,7 @@ class FlightsController < ApplicationController
     # If I don't
       @flights = Flight.all
       plane = Plane.find params[:plane_id]
-      render :json => plane.flights
+      render :json => @flights
     end
   end
 
@@ -43,7 +43,7 @@ class FlightsController < ApplicationController
   # POST /flights
   # POST /flights.json
   def create
-    binding.pry
+    # binding.pry
     flight = Flight.create flight_params 
     # plane = Plane.find params[:plane_id]
     # render :json => plane.flights
