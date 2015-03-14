@@ -34,7 +34,6 @@ app.FlightView = Backbone.View.extend({
       };
     });
 
-
     for (var i = 0; i < app.burningPlanes.models.length; i++) {
       var name = app.burningPlanes.models[i].attributes.name;
       var $dataid = app.burningPlanes.models[i].attributes.id;
