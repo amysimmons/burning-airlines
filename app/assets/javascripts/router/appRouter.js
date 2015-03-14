@@ -57,13 +57,21 @@ app.AppRouter = Backbone.Router.extend({
   
     }, 
 
-  viewBook:function(){
-    console.log('viewBook function is working');
-    var plane = {name: "348", rows: 24, columns: 4};
-    var flight = {flight_number: 17, origin:"SYD", destination:"BNE", date: 2014}
-    console.log("plane", plane);
-    var bookingView = new app.BookingView({model: plane});
-    bookingView.render();
+  viewBook:function(id){
+    var flight = app.burningFlights.get(id); 
+    var plane_id = flight.attributes.plane_id; 
+    var options = {
+      flight: app.burningFlights.get(id), 
+      plane_id: flight.attributes.plane_id, 
+      plane: app.burningPlanes.get(plane_id) 
+
+    }
+ 
+    console.log(options.flight.id);
+
+
+    var bookingView = new app.BookingView({model: options});
+    bookingView.render(options.plane);
   }, 
 
   viewSearch: function () {

@@ -5,7 +5,8 @@ app.FlightView = Backbone.View.extend({
   events: {
     'click #create-flight': 'createFlight', 
     'click #save-flight': 'showFlight',
-    'click #cancel-flight': 'clearFlight'
+    'click #cancel-flight': 'clearFlight', 
+    'click a': 'showSeats'
   },
 
   render: function(){
@@ -69,7 +70,17 @@ app.FlightView = Backbone.View.extend({
       view.render();
     });
 
-  }
+  }, 
+
+  showSeats: function (result) {
+  var id = result.currentTarget.id 
+
+  app.appRouter.navigate('flights/'+ id, true); 
+
+
+
+
+}
 
 });
 

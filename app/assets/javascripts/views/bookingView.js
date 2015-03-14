@@ -1,19 +1,20 @@
 var app = app || {};
 
 app.BookingView = Backbone.View.extend({
+
   el: '#main',
   events: {
     "click #selectSeat": 'saveBooking',
     "click .seat-big": 'selectSeatByClick'
   },
-  render: function() {
-    console.log(this.model.rows, this.model.columns);
+  render: function(options) {
+    console.log(this.model.plane.attributes.rows, this.model.plane.attributes.columns);
     var bookingViewTemplate = $('#bookingView-template').html();
     var bookingViewHTML = _.template(bookingViewTemplate);
-    this.$el.html(bookingViewHTML(this.model));
+    this.$el.html(bookingViewHTML(this.model.plane.attributes));
 
     var rowLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-    var plane = this.model;
+    var plane = this.model.plane.attributes;
     var rowindex = 0;
 
     _(plane.rows).times(function() {
@@ -46,10 +47,11 @@ app.BookingView = Backbone.View.extend({
   },
 
   fetchData: function() {
+
     this.reservations = new app.Reservations();
     this.reservations.fetch({
               data: {
-                flight_id: 1 
+                flight_id: this.model.flight.attributes.id
                   }
            }).done(function (result) {
               for (var i = 0; i < result.length; i++) {
@@ -65,16 +67,18 @@ app.BookingView = Backbone.View.extend({
       $('#seatNumber').val(seatNum);
   },
 
-  saveBooking: function(event) {
+  saveBooking: function(event) { 
       event.preventDefault();
+      var view = this; 
+      var flight_id = view.model.flight.attributes.id; 
       var user_name = $('#user_name').val();
       var seatid = $('#seatNumber').val();
       var $seat = $('#' + seatid);
       $seat.addClass('booked').html(user_name);
+      
       $('#seatNumber, #user_name').val('') ; 
-
       var reservation = new app.Reservation ({
-        flight_id: 1,
+        flight_id: flight_id,
         user_name: user_name,
         seat: seatid
       });  
