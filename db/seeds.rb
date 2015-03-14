@@ -14,7 +14,6 @@ f2 = Flight.create(flight_number: 45, origin:"LAX", destination:"SFO", date: 201
 f3 = Flight.create(flight_number: 70, origin:"SFO", destination:"JFK", date: 2014)
 f4 = Flight.create(flight_number: 27, origin:"SYD", destination:"IST", date: 2014)
 f5 = Flight.create(flight_number: 88, origin:"SYD", destination:"LHR", date: 2014)
-
 f6 = Flight.create(flight_number: 88, origin:"SYD", destination:"BNE", date: 2014)
 f7 = Flight.create(flight_number: 45, origin:"SYD", destination:"IST", date: 2014)
 
@@ -39,9 +38,6 @@ r2 = Reservation.create(flight_id: f1.id, user_id: u2.id, seat: 'v1');
 r3 = Reservation.create(flight_id: f1.id, user_id: u3.id, seat: 's1');
 r4 = Reservation.create(flight_id: f1.id, user_id: u4.id, seat: 'r1');
 r5 = Reservation.create(flight_id: f2.id, user_id: u5.id, seat: 'p1');
-
-
-
 
 
 

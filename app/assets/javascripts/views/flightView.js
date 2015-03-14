@@ -1,6 +1,3 @@
-
-
-
 var app = app || {};
 
 app.FlightView = Backbone.View.extend({
@@ -12,44 +9,69 @@ app.FlightView = Backbone.View.extend({
   },
 
   render: function(){
-    var newFlightViewTemplate = $('#newFlightView-template').html();
-    var newFlightViewHTML = _.template(newFlightViewTemplate);
-    // this.$el.html(newFlightViewHTML(this.model.toJSON()));
+    console.log('rendering FlightView collection:', this.collection); 
+    var newFlightViewHTML = $('#newFlightView-template').html();
+    var flightsViewHTML = $('#flightsView-template').html();
 
-  },
-  showFlight: function(event){
-    console.log('showFlight'); 
-    event.preventDefault();
-    $('#show-flight').empty(); 
-    var name = $('#name').val();
-    var rows = $('#rows').val();
-    var columns = $('#columns').val();
-
-    console.log('show flight function called');
-
-    name.appendTo('#main');
+    this.$el.html(newFlightViewHTML); 
+    $('#show-flights').html(flightsViewHTML);
 
 
-    var flight = new app.Flight({
-      flight_number: flight_number,
-      origin: origin,
-      destination: destination,
-      date: date,
-      plane_id: this.model.get('id')
+    app.burningFlights.fetch().done(function () {
+
+    var flightListViewTemplate = $('#flightListView-template').html();
+    var flightListViewHTML = _.template(flightListViewTemplate);
+      for (var i = 0; i < app.burningFlights.models.length; i++) {
+
+        var currentPlane = app.burningPlanes.get(app.burningFlights.models[i].attributes.plane_id);
+        if (currentPlane) {
+
+          var name = currentPlane.attributes.name;
+
+          app.burningFlights.models[i].attributes.name = name;
+          
+          var compiledHTML = flightListViewHTML(app.burningFlights.models[i].attributes)
+          $("thead.thead").append(compiledHTML);
+        }
+
+      };
     });
 
-      var view = this;
-      flight.save().done(function(){
-        // view.comments.add(newComment);
-        view.flight.fetch();
+    for (var i = 0; i < app.burningPlanes.models.length; i++) {
+      var name = app.burningPlanes.models[i].attributes.name;
+      var $dataid = app.burningPlanes.models[i].attributes.id;
+      $option = $("<option data-id=\"" + $dataid + "\"></option>");
+      $option.text(name);
+ 
+      $option.appendTo($('.choose-plane'));
+    };
 
-      });
+  },
 
-      showFlight.render();
+  createFlight: function(event){
+    console.log('creating flight');
+
+    event.preventDefault();
+
+    var flightNumber = $('#flight_number').val();
+    var origin = $('#origin').val();
+    var destination = $('#destination').val();
+    var date = $('#date').val();
+    var id = $(".choose-plane option:selected").data("id");
+
+    var flight = new app.Flight({
+      flight_number: flightNumber, 
+      origin: origin, 
+      destination: destination, 
+      date: date, 
+      plane_id: id
+    });
+
+    flight.save()
+    console.log(flight); 
+
   }
-  // this receives a variable called event or e
-  // we want to call event.preventDefault();
-// comment.save won't work until we have the url for a single comment
+
 
 });
 

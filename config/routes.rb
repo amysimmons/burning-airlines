@@ -10,4 +10,7 @@ Rails.application.routes.draw do
 
   resources :planes
 
+  get '/search' => 'flights#search'
+
+
 end

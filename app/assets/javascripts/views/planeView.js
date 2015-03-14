@@ -5,8 +5,7 @@ app.PlaneView = Backbone.View.extend({
   events: {
     'click #create-plane': 'createPlane', 
     'click #save-plane': 'showPlane',
-    'click #cancel-plane': 'clearPlane',
-    'click .test':'showSinglePlane'
+    'click #cancel-plane': 'clearPlane'
   },
 
   render: function(){
@@ -14,12 +13,9 @@ app.PlaneView = Backbone.View.extend({
     var newPlaneViewHTML = $('#newPlaneView-template').html();
 
     this.$el.html(newPlaneViewHTML); 
-
-    // this.collection.each(function (post) {
-    //   var postListView = new app.PostListView({model: post}); 
-    //   postListView.render(); 
-    // }); 
     
+    this.planes = new app.Planes()
+
   },
 
   showPlane: function(event){
@@ -45,19 +41,44 @@ app.PlaneView = Backbone.View.extend({
 
           $row.prepend($('<div></div>').addClass('row-letter').text( rowLetters[index++])   ).appendTo($('#show-plane'));
 
-        });
+    });
 
-          $seatNumRow = $('<div></div>').addClass('seat-num-row');
+    $seatNumRow = $('<div></div>').addClass('seat-num-row');
 
-          count = 1
+    count = 1
 
-          _(columns).times(function(){
-            $seatNum = $('<div></div>').addClass('seat-num');
-            $seatNum.text(count ++);
-            $seatNum.appendTo($seatNumRow);
-            $seatNumRow.appendTo($row);
-          });
+    _(columns).times(function(){
+      $seatNum = $('<div></div>').addClass('seat-num');
+      $seatNum.text(count ++);
+      $seatNum.appendTo($seatNumRow);
+      $seatNumRow.appendTo($row);
+    });
+
+  }, 
+
+  clearPlane: function(event){
+    event.preventDefault();
+    $('#show-plane').empty(); 
+
+  }, 
+
+  createPlane: function(event){
+    event.preventDefault();
+
+    var name = $('#name').val();
+    var rows = $('#rows').val();
+    var columns = $('#columns').val();
+
+    var plane = new app.Plane({
+      name: name, 
+      rows: rows, 
+      columns: columns
+    });
+
+    plane.save()
+    console.log(plane.toJSON()); 
+
 
   }
- 
+
 });
