@@ -10,10 +10,112 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require font-awesome
  *= require_tree .
  *= require_self
  */
 
+
+/*homepage styles*/
+
+@import url(http://fonts.googleapis.com/css?family=Orbitron:400,900,700,500);
+
+body {
+  font-family: Helvetica, Arial;
+  margin: 0;
+  background-image: url("http://i2.wp.com/img.chinasmack.com/www/wp-content/uploads/2014/07/malaysia-airlines-mh17-shot-down-over-ukraine-crash-03.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+header {
+  text-align: center;
+  font-size: 30px;
+  /*border-bottom: 2px solid rgba(0,0,0,0.05);*/
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #fff;
+  position: fixed;
+  background-color: rgb(7, 36, 61);
+  color: rgb(182, 197, 217);
+}
+
+nav {
+  margin-bottom: 15px;
+}
+
+.title, h2, h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 30px;
+}
+
+.nav-link {
+  font-size: 20px;
+  text-transform: uppercase;
+  color: rgb(182, 197, 217);
+  text-decoration: none;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 10px;
+}
+
+.nav-link:hover {
+  color: rgb(241, 138, 6);
+  /*border-bottom: 1px solid orange;*/
+}
+
+.main-container {
+  margin-top: 200px;
+  margin-bottom: 100px;
+}
+
+#main {
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+  background-color: #fff;
+  opacity: 0.8;
+  border-radius: 6px;
+}
+
+button {
+  background-color: rgb(241, 138, 6);
+  border: 1px solid #F5A503;
+  border-radius: 3px;
+  color: rgb(7, 36, 61);
+  margin-top: 0.5em;
+  padding: 0.5em;
+  width: 200px;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+label {
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+input, select {
+  /*display: inline-block;*/
+  width: 200px;
+  background-color: #F5F2E9;
+  margin: 0.2em auto;
+  padding: 0.4em;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  line-height: 150%;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
 
 .row {
   display: block;
