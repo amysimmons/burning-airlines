@@ -20,15 +20,15 @@
     </div> 
     <div>
       <label for="rows">Rows</label><br>
-      <input type="number" id="rows" max='26' min='1' placeholder="Rows"></input> 
+      <input type="number" min="1" max="26" id="rows" placeholder="Rows" required>
     </div> 
     <div>
       <label for="columns">Columns</label><br>
-      <input type="number" id="columns" min='1' placeholder="Columns"></input> 
+      <input type="number" min="1" max="15" id="columns" placeholder="Columns" required> 
     </div> 
     </div><br>
       <button id="save-plane">Save</button> 
-      <button id="cancel-plane">Cancel</button> 
+      <button id="cancel-plane">Clear</button> 
       <button id="create-plane">Create Plane</button> 
   </form> 
   <div id="show-plane"></div> 
@@ -37,26 +37,30 @@
 <script id="newFlightView-template" type="text/x-template">
   <h2>Create Flight</h2> 
   <form> 
-    <div>
-      <label for="flight_number">Flight number</label><br> 
-      <input id="flight_number" placeholder="Flight number"></label> 
-    </div> 
-    <div>
-      <label for="origin">Origin</label><br>
-      <input id="origin" placeholder="Origin"></input> 
-    </div> 
-    <div>
-      <label for="destination">Destination</label><br>
-      <input id="destination" placeholder="Destination"></input> 
-    </div> 
-    <div>
-      <label for="date">Flight date</label><br>
-      <input id="date" type="date"></input> 
-    </div> 
-    <div>
-      <label for="plane_id">Plane name</label><br>
-      <select class="choose-plane" id="plane_id"></select>
-    </div> 
+    <div class="left">
+      <div>
+        <label for="flight_number">Flight number</label><br> 
+        <input id="flight_number" placeholder="Flight number"></label> 
+      </div> 
+      <div>
+        <label for="date">Flight date</label><br>
+        <input id="date" type="date"></input> 
+      </div> 
+      <div>
+        <label for="plane_id">Plane name</label><br>
+        <select class="choose-plane" id="plane_id"></select>
+      </div> 
+    </div>
+    <div class="right">
+      <div>
+        <label for="origin">Origin</label><br>
+        <input id="origin" placeholder="Origin"></input> 
+      </div> 
+      <div>
+        <label for="destination">Destination</label><br>
+        <input id="destination" placeholder="Destination"></input> 
+      </div> 
+    </div>
     <button id="create-flight">Create Flight</button> 
   </form> 
   <div id="show-flights"></div> 
@@ -91,16 +95,17 @@
 <script id="bookingView-template" type="text/x-template"> 
   <h2>Flight information</h2>
   <div id="seatsView"></div>
-  <div>
-    <label for="user-name">Name</label><br>
-    <input name='user_name' id="user_name"></input> 
-  </div>
-  <div>
-    <label for="seatNumber">Seat Number</label><br>
-    <input name='seatNumber' id="seatNumber"></input> 
-  </div>
+  <form>
+    <div>
+      <label for="user-name">Name</label><br>
+      <input name='user_name' id="user_name"></input> 
+    </div>
+    <div>
+      <label for="seatNumber">Seat Number</label><br>
+      <input name='seatNumber' id="seatNumber"></input> 
+    </div>
     <button id="selectSeat">Book Seat</button> 
-
+  </form>
 </script>
 
 <script id="newSearchView-template" type="text/x-template">

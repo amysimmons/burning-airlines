@@ -83,7 +83,7 @@ h2 {
 
 #main {
   padding: 20px;
-  width: 80%;
+  width: 70%;
   margin: auto;
   background-color: #fff;
   opacity: 0.8;
@@ -97,10 +97,11 @@ button {
   color: rgb(7, 36, 61);
   margin-top: 0.5em;
   padding: 0.5em;
-  width: 200px;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: bold;
+  height: 50px;
+  width: 218px
 }
 
 label {
@@ -172,10 +173,11 @@ table a {
   background-color: rgb(9, 37, 65);
   border-radius: 3px;
   display: inline-block;
+  vertical-align: middle;
 }
 
 .seat-num-row {
-  margin-left: 10px;
+  margin-left: 52px;
 }
 
 .seat-num {
@@ -186,6 +188,7 @@ table a {
   padding-right: 1px;
   font-weight: bold;
   font-size: 20px;
+  border: 1px solid #fff;
 }
 
 /*end create pane styles*/
@@ -209,34 +212,55 @@ table a {
   border-radius: 3px;
   display: inline-block;
   text-transform: capitalize;
+  vertical-align: middle;
+
 }
 
 .seat-num-big {
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-  padding-left: 1px;
-  padding-right: 1px;
-  margin: 5px;
-  text-align: center;
-
-/*
   display: inline-block;
   width: 50px;
   height: 50px;
   padding-left: 1px;
   padding-right: 1px;
+  text-align: center;
   font-weight: bold;
   font-size: 20px;
-  text-align: center;
-*/
+  border: 1px solid #fff;
 }
 
 .row-letter-big {
+
   display: inline-block;
-  width: 10px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   text-transform: uppercase;
-  padding-top: 8px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+
+}
+
+.left {
+  display: inline-block;
+  margin-right: 15px;
   vertical-align: top;
 }
+
+.right {
+  display: inline-block;
+  margin-left: 15px;
+}
+
+#create-flight{
+  margin: auto;
+  display: block;
+}
+
+form, #seatsView{
+  margin-top: 60px;
+}
+
+#show-flights{
+  margin-top: 80px;
+}
+

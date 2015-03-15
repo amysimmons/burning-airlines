@@ -2,15 +2,18 @@ var app = app || {};
 
 app.PlaneView = Backbone.View.extend({
   el: '#main',
-
   events: {
     'click #create-plane': 'createPlane', 
     'click #save-plane': 'showPlane',
+    'click #cancel-plane': 'clearPlane'
   },
 
-  render: function(){ 
+  render: function(){
+    console.log('rendering PlaneView collection:', this.collection); 
     var newPlaneViewHTML = $('#newPlaneView-template').html();
+
     this.$el.html(newPlaneViewHTML); 
+
   },
 
   showPlane: function(event){
@@ -71,8 +74,19 @@ app.PlaneView = Backbone.View.extend({
     });
 
     plane.save()
-  }
+    console.log(plane.toJSON()); 
 
+
+  }, 
+
+  initialize: function () {
+    _.bindAll(this, 'cleanup');
+  }, 
+
+  cleanup: function() {
+    this.undelegateEvents();
+    $(this.el).empty();
+  }
 
 });
 
