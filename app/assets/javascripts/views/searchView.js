@@ -39,9 +39,18 @@ app.SearchView = Backbone.View.extend({
 
         for (var i = 0; i < result.length; i++) {
           search = result[i]
+          var currentPlane = app.burningPlanes.get(result[i].plane_id);
+          if (currentPlane) {
+          var name = currentPlane.attributes.name;
 
+          result[i].name = name;
+
+          
+
+    
           var compiledHTML = searchListViewHTML(search)
           $("thead.thead-search").append(compiledHTML);
+        }
         }
       }else {
         $('#show-search').empty();
