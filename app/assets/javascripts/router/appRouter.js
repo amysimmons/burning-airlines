@@ -17,6 +17,7 @@ app.AppRouter = Backbone.Router.extend({
 
 
   viewPlane: function (id) {
+    $('#main').show();
     $('#main').empty();
     app.burningPlanes.fetch().done(function () {
       var plane = app.burningPlanes.get(id); 
@@ -26,6 +27,7 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   viewFlight: function (id) {
+    $('#main').show();
     $('#main').empty();
     app.burningPlanes.fetch().done(function () {
       var flight = app.burningFlights.get(id); 
@@ -36,6 +38,7 @@ app.AppRouter = Backbone.Router.extend({
     }, 
 
   viewBook:function(id){
+    $('#main').show();
     app.burningFlights.fetch().done(function () {
       var flight = app.burningFlights.get(id); 
       var plane_id = flight.attributes.plane_id; 
@@ -50,6 +53,7 @@ app.AppRouter = Backbone.Router.extend({
   }, 
 
   viewSearch: function () {
+    $('#main').show();
     $('#main').empty();
     console.log('search'); 
     var searchView = new app.SearchView({collection: app.Flights}); 
