@@ -4,14 +4,11 @@ app.FlightView = Backbone.View.extend({
   el: '#main',
   events: {
     'click #create-flight': 'createFlight',
-    'click #save-flight': 'showFlight',
-    'click #cancel-flight': 'clearFlight',
     'click a': 'showSeats'
   },
   render: function() {
 
-    
-
+  
     var newFlightViewHTML = $('#newFlightView-template').html();
     var flightsViewHTML = $('#flightsView-template').html();
     this.$el.html(newFlightViewHTML);
