@@ -5,7 +5,7 @@ class FlightsController < ApplicationController
   # GET /flights.json
   def index
     if params[:origin] && params[:destination]
-       @flights = Flight.where(:origin => params[:origin]) && Flight.where(:destination => params[:destination])
+       @flights = Flight.where(:origin => params[:origin], :destination => params[:destination])
        render :json => @flights, :include => :reservations
     else
       @flights = Flight.all
