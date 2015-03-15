@@ -9,7 +9,6 @@ app.SearchView = Backbone.View.extend({
 
   render: function() {
     // Fetch and compile the template 
-    console.log('render running');
     var searchViewHTML = $('#newSearchView-template').html();
     this.$el.html(searchViewHTML);
 
