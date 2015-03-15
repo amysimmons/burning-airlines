@@ -6,7 +6,6 @@ app.PlaneView = Backbone.View.extend({
   events: {
     'click #create-plane': 'createPlane', 
     'click #save-plane': 'showPlane',
-    'click #cancel-plane': 'clearPlane'
   },
 
   render: function(){ 
@@ -24,7 +23,7 @@ app.PlaneView = Backbone.View.extend({
     var rowLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     var index = _.indexOf(rowLetters, 'a')
 
-    $('<p/>').text(name).addClass('plane-name').appendTo('#show-plane');
+    $('<h3/>').text(name).addClass('plane-name').appendTo('#show-plane');
 
      _(rows).times(function(){
 
@@ -72,14 +71,16 @@ app.PlaneView = Backbone.View.extend({
     });
 
     plane.save()
-    console.log(plane.toJSON()); 
-
-    // var view = this;
-    // plane.save().done(function () {
-    //   view.render();
-    // });
-
-
   }
 
+
 });
+
+
+
+
+
+
+
+
+
