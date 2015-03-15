@@ -80,11 +80,11 @@
 
 <script id="flightListView-template" type="text/x-underscore-template">
   <tr>
-    <td>{{date}}</td>
-    <td><a id="{{id}}" data-flight-id = {{ id }}>{{flight_number}}</a></td> 
-    <td>{{origin}} > {{destination}}</td>
-    <td>{{name}}</td> 
-    <td><%=@remainingSeats%></td>
+    <td>{{flight.date}}</td>
+    <td><a id="{{flight.id}}" data-flight-id = {{ flight.id }}>{{flight.flight_number}}</a></td> 
+    <td>{{flight.origin}} > {{flight.destination}}</td>
+    <td>{{flight.name}}</td> 
+    <td>{{seats}}</td>
   </tr>
 </script>
 

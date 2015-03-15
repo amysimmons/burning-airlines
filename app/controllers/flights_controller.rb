@@ -6,23 +6,13 @@ class FlightsController < ApplicationController
   def index
     if params[:origin] && params[:destination]
        @flights = Flight.where(:origin => params[:origin]) && Flight.where(:destination => params[:destination])
-       render :json => @flights
+       render :json => @flights, :include => :reservations
     else
       @flights = Flight.all
-      render :json => @flights
+      render :json => @flights, :include => :reservations
     end
   end
-
-  # def seats
-    # flight = Flight.find(params[:id])
-    # rows = flight.plane.rows
-    # columns = flight.plane.columns
-    # totalSeats = rows * columns
-    # bookedSeats = f.reservations.length
-    # @remainingSeats = toalSeats - bookedSeats
-    # render :json => @remainingSeats
-  # end
-
+  
   # GET /flights/1
   # GET /flights/1.json
   def show

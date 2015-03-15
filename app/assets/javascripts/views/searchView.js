@@ -20,7 +20,7 @@ app.SearchView = Backbone.View.extend({
     var searchViewHTML = $('#searchView-template').html();
     $('#show-search').html(searchViewHTML);
 
-    $('.thead-search').empty(); 
+    $('.thead-search').empty();
 
     event.preventDefault();
 
@@ -46,15 +46,15 @@ app.SearchView = Backbone.View.extend({
         $("thead.thead-search").append(compiledHTML);
       }
 
-      });  
+    });
 
-}, 
+  },
 
-showSeats: function (result) {
-  console.log('show seats running');
-  var id = result.currentTarget.id 
-  app.appRouter.navigate('flights/'+ id, true); 
+  showSeats: function(result) {
+    console.log('show seats running');
+    var id = result.currentTarget.id
+    app.appRouter.navigate('flights/' + id, true);
 
-}
+  }
 
-}); 
+});
