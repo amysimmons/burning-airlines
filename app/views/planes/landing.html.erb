@@ -81,7 +81,7 @@
 
 <script id="flightListView-template" type="text/x-underscore-template">
   <tr>
-    <td>{{flight.date}}</td>
+    <td>{{moment( flight.date ).format( 'MMMM Do, YYYY' )}}</td>
     <td><a id="{{flight.id}}" data-flight-id = {{ flight.id }}>{{flight.flight_number}}</a></td> 
     <td>{{flight.origin}} > {{flight.destination}}</td>
     <td>{{flight.name}}</td> 
@@ -135,7 +135,7 @@
 
 <script id="searchListView-template" type="text/x-underscore-template">
   <tr>
-    <td>{{date}}</td>
+    <td>{{moment( date ).format( 'MMMM Do, YYYY' )}}</td>
     <td><a id="{{id}}" data-flight-id = {{ id }}>{{flight_number}}</a></td> 
     <td>{{origin}} > {{destination}}</td>
     <td>{{name}}</td> 
