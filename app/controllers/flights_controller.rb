@@ -13,6 +13,15 @@ class FlightsController < ApplicationController
     end
   end
 
+  # def seats
+    # flight = Flight.find(params[:id])
+    # rows = flight.plane.rows
+    # columns = flight.plane.columns
+    # totalSeats = rows * columns
+    # bookedSeats = f.reservations.length
+    # @remainingSeats = toalSeats - bookedSeats
+    # render :json => @remainingSeats
+  # end
 
   # GET /flights/1
   # GET /flights/1.json

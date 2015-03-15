@@ -1,12 +1,18 @@
-<a href="#">Home</a>
-
-<h1>Burning Airlines</h1>
-<div id="main"></div>
+<div class="main-container">
+  <header>
+    <h1>Burning Airlines</h1>
+    <nav>
+      <a href="">Home</a>
+      <a href="#planes">Create Plane</a>
+      <a href="#flights">Create Flight</a>
+      <a href="#search">Search Flights</a>
+    </nav>
+  </header>
+  <div id="main"></div>
+  <div id="search-results"></div>
+</div>
 <script id="newPlaneView-template" type="text/x-template">
-<a href="#planes">Planes</a>
-<a href="#flights">Flight</a>
-<a href="#admin">Admin</a>
-  <h2>Create New Plane</h2> 
+  <h2>Create Plane</h2> 
   <form> 
       <button id="create-plane">Create Plane</button> 
     <div>
@@ -28,10 +34,7 @@
 </script>
 
 <script id="newFlightView-template" type="text/x-template">
-<a href="#planes">Planes</a>
-<a href="#flights">Flight</a>
-<a href="#admin">Admin</a>
-  <h2>Create New Flight</h2> 
+  <h2>Create Flight</h2> 
   <form> 
       <button id="create-flight">Create Flight</button> 
     <div>
@@ -62,7 +65,7 @@
 
 
 <script id="flightsView-template" type="text/x-underscore-template">
-  <h3>Flights</h3>
+  <h2>Search Flights</h2>
   <table>
   <thead class="thead">
     <th>Date</th>
@@ -81,14 +84,13 @@
     <td><a id="{{id}}" data-flight-id = {{ id }}>{{flight_number}}</a></td> 
     <td>{{origin}} > {{destination}}</td>
     <td>{{name}}</td> 
-    <td>'seats'</td>
+    <td><%=@remainingSeats%></td>
   </tr>
 </script>
 
 
-<script id="bookingView-template" type="text/x-template">
-  <h3>Virgin Airlines</h3> 
-  <P>Flight information</p>
+<script id="bookingView-template" type="text/x-template"> 
+  <h2>Flight information</h2>
   <div id="seatsView"></div>
   <div>
     <label for="user-name">User Name:</label>
@@ -100,7 +102,7 @@
 </script>
 
 <script id="newSearchView-template" type="text/x-template">
-  <h2>Search</h2> 
+  <h2>Search Flights</h2> 
   <form role="search"> 
       <button id="create-search">Search</button> 
     <div>
@@ -111,8 +113,6 @@
       <label for="to">To:</label><br>
       <input id="to" :search, params[:search]></input> 
     </div><br>
-      <button id="save-search">Save</button> 
-      <button id="cancel-search">Cancel</button> 
   </form> 
   <div id="show-search"></div> 
 </script>
@@ -138,8 +138,7 @@
   </tr>
 </script>
 
-
-
-
-
+<!-- <a href="#planes">Planes</a>
+<a href="#flights">Flight</a>
+<a href="#admin">Admin</a> -->
 

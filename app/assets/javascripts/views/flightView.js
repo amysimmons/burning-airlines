@@ -10,13 +10,17 @@ app.FlightView = Backbone.View.extend({
   },
 
   render: function(){
+
     console.log('rendering FlightView collection:', this.collection); 
     var newFlightViewHTML = $('#newFlightView-template').html();
     var flightsViewHTML = $('#flightsView-template').html();
     this.$el.html(newFlightViewHTML); 
     $('#show-flights').html(flightsViewHTML);
 
-    app.burningFlights.fetch().done(function () {
+    app.burningFlights.fetch().done(function (result) {
+    
+    console.log(result);
+    debugger;
 
     var flightListViewTemplate = $('#flightListView-template').html();
     var flightListViewHTML = _.template(flightListViewTemplate);
@@ -28,6 +32,9 @@ app.FlightView = Backbone.View.extend({
         if (currentPlane) {
           var name = currentPlane.attributes.name;
           app.burningFlights.models[i].attributes.name = name;
+
+          // var seat = currentPlane
+
           var compiledHTML = flightListViewHTML(app.burningFlights.models[i].attributes)
           $("thead.thead").append(compiledHTML);
         }
