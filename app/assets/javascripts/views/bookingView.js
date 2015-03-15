@@ -22,7 +22,7 @@ app.BookingView = Backbone.View.extend({
       var row = rowLetters[rowindex++]
       var column = 1;
       _(plane.columns).times(function() {
-        if (column > 4) {
+        if (column > plane.columns) {
           column == 0;
         };
         $seat = $('<div/>').addClass('seat-big');
