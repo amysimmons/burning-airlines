@@ -12,11 +12,7 @@ app.AppRouter = Backbone.Router.extend({
   },
 
   index: function () {
-
-    // var appView = new app.AppView({collection: app.newPlanes}); 
-    // appView.render(); 
-
-    console.log('index'); 
+    $('#main').hide();
   },
 
 
