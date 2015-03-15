@@ -9,7 +9,6 @@ app.SearchView = Backbone.View.extend({
 
   render: function() {
     // Fetch and compile the template 
-    console.log('render running');
     var searchViewHTML = $('#newSearchView-template').html();
     this.$el.html(searchViewHTML);
 
@@ -17,18 +16,15 @@ app.SearchView = Backbone.View.extend({
 
   createSearch: function() {
     console.log('create search running');
-    var searchViewHTML = $('#searchView-template').html();
-    $('#show-search').html(searchViewHTML);
-
-    $('.thead-search').empty();
 
     event.preventDefault();
 
     var searchViewHTML = $('#searchView-template').html();
+    $('#show-search').html(searchViewHTML);
     var showSearchView = $('#show-search').html(searchViewHTML);
 
-    var from = $("#from").val(),
-      to = $("#to").val();
+    var from = $("#from").val().toUpperCase(),
+      to = $("#to").val().toUpperCase();
 
     app.burningFlights.fetch({
       data: {
@@ -36,16 +32,22 @@ app.SearchView = Backbone.View.extend({
         destination: to
       }
     }).done(function(result) {
-      var searchListViewTemplate = $('#searchListView-template').html();
-      var searchListViewHTML = _.template(searchListViewTemplate);
+      
+      if(result.length > 0){
+        var searchListViewTemplate = $('#searchListView-template').html();
+        var searchListViewHTML = _.template(searchListViewTemplate);
 
-      for (var i = 0; i < result.length; i++) {
-        search = result[i]
+        for (var i = 0; i < result.length; i++) {
+          search = result[i]
 
-        var compiledHTML = searchListViewHTML(search)
-        $("thead.thead-search").append(compiledHTML);
+          var compiledHTML = searchListViewHTML(search)
+          $("thead.thead-search").append(compiledHTML);
+        }
+      }else {
+        $('#show-search').empty();
+        alert('No flights found');
+
       }
-
     });
 
   },
