@@ -10,7 +10,7 @@ app.FlightView = Backbone.View.extend({
   },
 
   render: function(){
-
+    
     console.log('rendering FlightView collection:', this.collection); 
     var newFlightViewHTML = $('#newFlightView-template').html();
     var flightsViewHTML = $('#flightsView-template').html();
@@ -19,8 +19,6 @@ app.FlightView = Backbone.View.extend({
 
     app.burningFlights.fetch().done(function (result) {
     
-    console.log(result);
-    debugger;
 
     var flightListViewTemplate = $('#flightListView-template').html();
     var flightListViewHTML = _.template(flightListViewTemplate);
