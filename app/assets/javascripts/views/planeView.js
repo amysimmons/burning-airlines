@@ -78,6 +78,11 @@ app.PlaneView = Backbone.View.extend({
     plane.save()
     console.log(plane.toJSON()); 
 
+    // var view = this;
+    // plane.save().done(function () {
+    //   view.render();
+    // });
+
 
   }
 

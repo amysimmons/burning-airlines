@@ -61,10 +61,14 @@ app.BookingView = Backbone.View.extend({
   },
 
   selectSeatByClick: function(event){
-      $('.seat-selected').removeClass('seat-selected');
-      $(event.currentTarget).addClass('seat-selected');
-      seatNum = event.currentTarget.id
-      $('#seatNumber').val(seatNum);
+      if ($(event.currentTarget).hasClass('booked')) {
+         alert("Seat is already booked.");
+      }else {
+        $('.seat-selected').removeClass('seat-selected');
+        $(event.currentTarget).addClass('seat-selected');
+        seatNum = event.currentTarget.id
+        $('#seatNumber').val(seatNum);
+      }
   },
 
   saveBooking: function(event) { 

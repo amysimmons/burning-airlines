@@ -8,9 +8,7 @@ app.FlightView = Backbone.View.extend({
     'click #cancel-flight': 'clearFlight',
     'click a': 'showSeats'
   },
-
-  render: function() {
-    console.log('rendering FlightView collection:', this.collection);
+  render: function(){
     var newFlightViewHTML = $('#newFlightView-template').html();
     var flightsViewHTML = $('#flightsView-template').html();
     this.$el.html(newFlightViewHTML);
@@ -28,7 +26,16 @@ app.FlightView = Backbone.View.extend({
         if (currentPlane) {
           var name = currentPlane.attributes.name;
           app.burningFlights.models[i].attributes.name = name;
-          var compiledHTML = flightListViewHTML(app.burningFlights.models[i].attributes)
+
+          // calc reamining seats 
+          var totalSeats = currentPlane.attributes.rows * currentPlane.attributes.columns 
+          var bookedSeats = app.burningFlights.models[i].attributes.reservations.length
+          var remainingSeats = totalSeats - bookedSeats
+          
+          // creates options to pass both flight and reservation information to the template
+          var options = {flight: app.burningFlights.models[i].attributes, seats: remainingSeats}
+
+          var compiledHTML = flightListViewHTML(options)
           $("thead.thead").append(compiledHTML);
         }
       };
