@@ -79,7 +79,7 @@
 
 <script id="flightListView-template" type="text/x-underscore-template">
   <tr>
-    <td>{{moment( flight.date ).format( 'MMMM Do, YYYY' )}}</td>
+    <td>{{moment( flight.date ).format( 'MMMM D, YYYY' )}}</td>
     <td><a id="{{flight.id}}" data-flight-id = {{ flight.id }}>{{flight.flight_number}}</a></td> 
     <td>{{flight.origin}} > {{flight.destination}}</td>
     <td>{{flight.name}}</td> 

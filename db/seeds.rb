@@ -2,20 +2,20 @@ Plane.destroy_all
 Flight.destroy_all
 
 # Create plane data
-p1 = Plane.create(name: "747", rows: 26, columns: 6)
-p2 = Plane.create(name: "756", rows: 28, columns: 8)
-p3 = Plane.create(name: "767", rows: 29, columns: 9)
+p1 = Plane.create(name: "747", rows: 20, columns: 6)
+p2 = Plane.create(name: "756", rows: 18, columns: 8)
+p3 = Plane.create(name: "767", rows: 16, columns: 9)
 p4 = Plane.create(name: "789", rows: 22, columns: 6)
 p5 = Plane.create(name: "348", rows: 24, columns: 4)
 
 # Create flight data
-f1 = Flight.create(flight_number: 17, origin:"SYD", destination:"BNE", date: 2014)
-f2 = Flight.create(flight_number: 45, origin:"LAX", destination:"SFO", date: 2014)
-f3 = Flight.create(flight_number: 70, origin:"SFO", destination:"JFK", date: 2014)
-f4 = Flight.create(flight_number: 27, origin:"SYD", destination:"IST", date: 2014)
-f5 = Flight.create(flight_number: 88, origin:"SYD", destination:"LHR", date: 2014)
-f6 = Flight.create(flight_number: 88, origin:"SYD", destination:"BNE", date: 2014)
-f7 = Flight.create(flight_number: 45, origin:"SYD", destination:"IST", date: 2014)
+f1 = Flight.create(flight_number: 17, origin:"SYD", destination:"BNE", date: "04/04/2015 17:00")
+f2 = Flight.create(flight_number: 45, origin:"LAX", destination:"SFO", date: "04/08/2015 17:00")
+f3 = Flight.create(flight_number: 70, origin:"SFO", destination:"JFK", date: "08/04/2015 17:00")
+f4 = Flight.create(flight_number: 27, origin:"SYD", destination:"IST", date: "14/3/2015 17:00")
+f5 = Flight.create(flight_number: 88, origin:"SYD", destination:"LHR", date: "04/5/2015 17:00")
+f6 = Flight.create(flight_number: 88, origin:"SYD", destination:"BNE", date: "04/6/2015 17:00")
+f7 = Flight.create(flight_number: 45, origin:"SYD", destination:"IST", date: "04/8/2015 17:00")
 
 # associate planes with flights
 p1.flights << f1

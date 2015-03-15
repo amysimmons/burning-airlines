@@ -45,9 +45,6 @@ app.SearchView = Backbone.View.extend({
 
           result[i].name = name;
 
-          
-
-    
           var compiledHTML = searchListViewHTML(search)
           $("thead.thead-search").append(compiledHTML);
         }
