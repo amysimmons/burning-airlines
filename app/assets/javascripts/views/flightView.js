@@ -17,10 +17,8 @@ app.FlightView = Backbone.View.extend({
     this.$el.html(newFlightViewHTML); 
     $('#show-flights').html(flightsViewHTML);
 
-    app.burningFlights.fetch().done(function (result) {
+    app.burningFlights.fetch().done(function () {
     
-    console.log(result);
-    debugger;
 
     var flightListViewTemplate = $('#flightListView-template').html();
     var flightListViewHTML = _.template(flightListViewTemplate);
@@ -33,9 +31,15 @@ app.FlightView = Backbone.View.extend({
           var name = currentPlane.attributes.name;
           app.burningFlights.models[i].attributes.name = name;
 
-          // var seat = currentPlane
+          // calc reamining seats 
+          var totalSeats = currentPlane.attributes.rows * currentPlane.attributes.columns 
+          var bookedSeats = app.burningFlights.models[i].attributes.reservations.length
+          var remainingSeats = totalSeats - bookedSeats
+          
+          // creates options to pass both flight and reservation information to the template
+          var options = {flight: app.burningFlights.models[i].attributes, seats: remainingSeats}
 
-          var compiledHTML = flightListViewHTML(app.burningFlights.models[i].attributes)
+          var compiledHTML = flightListViewHTML(options)
           $("thead.thead").append(compiledHTML);
         }
 
