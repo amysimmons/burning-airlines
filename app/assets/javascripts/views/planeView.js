@@ -2,20 +2,16 @@ var app = app || {};
 
 app.PlaneView = Backbone.View.extend({
   el: '#main',
+
   events: {
     'click #create-plane': 'createPlane', 
     'click #save-plane': 'showPlane',
     'click #cancel-plane': 'clearPlane'
   },
 
-  render: function(){
-    console.log('rendering PlaneView collection:', this.collection); 
+  render: function(){ 
     var newPlaneViewHTML = $('#newPlaneView-template').html();
-
     this.$el.html(newPlaneViewHTML); 
-    
-    this.planes = new app.Planes()
-
   },
 
   showPlane: function(event){
