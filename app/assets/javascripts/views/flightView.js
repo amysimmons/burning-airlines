@@ -20,7 +20,6 @@ app.FlightView = Backbone.View.extend({
       var flightListViewHTML = _.template(flightListViewTemplate);
 
       // iterates through all flights and gets plane name for flight table
-
       for (var i = 0; i < app.burningFlights.models.length; i++) {
 
         var currentPlane = app.burningPlanes.get(app.burningFlights.models[i].attributes.plane_id);

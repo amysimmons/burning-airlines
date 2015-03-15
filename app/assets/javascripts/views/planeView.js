@@ -20,37 +20,47 @@ app.PlaneView = Backbone.View.extend({
 
     event.preventDefault();
     $('#show-plane').empty(); 
-    var name = $('#name').val();
-    var rows = $('#rows').val();
-    var columns = $('#columns').val();
-    var rowLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    var index = _.indexOf(rowLetters, 'a')
 
-    $('<h3/>').text(name).addClass('plane-name').appendTo('#show-plane');
+    var rowInt = parseInt($('#rows').val());
+    var colInt = parseInt($('#columns').val());
 
-     _(rows).times(function(){
+    if(rowInt > 26 || colInt > 15){
+      alert('Sorry, a plane can have no more than 15 columns and 26 rows.');
+    }else{
 
-          $row = $('<div></div>').addClass('row');
+      var name = $('#name').val();
+      var rows = $('#rows').val();
+      var columns = $('#columns').val();
+      var rowLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+      var index = _.indexOf(rowLetters, 'a')
 
-            _(columns).times(function(){
-              $seat = $('<div></div>').addClass('seat');
-              $seat.appendTo($row);
-            });
+      $('<h3/>').text(name).addClass('plane-name').appendTo('#show-plane');
 
-          $row.prepend($('<div></div>').addClass('row-letter').text( rowLetters[index++])   ).appendTo($('#show-plane'));
+       _(rows).times(function(){
 
-    });
+            $row = $('<div></div>').addClass('row');
 
-    $seatNumRow = $('<div></div>').addClass('seat-num-row');
+              _(columns).times(function(){
+                $seat = $('<div></div>').addClass('seat');
+                $seat.appendTo($row);
+              });
 
-    count = 1
+            $row.prepend($('<div></div>').addClass('row-letter').text( rowLetters[index++])   ).appendTo($('#show-plane'));
 
-    _(columns).times(function(){
-      $seatNum = $('<div></div>').addClass('seat-num');
-      $seatNum.text(count ++);
-      $seatNum.appendTo($seatNumRow);
-      $seatNumRow.appendTo($row);
-    });
+      });
+
+      $seatNumRow = $('<div></div>').addClass('seat-num-row');
+
+      count = 1
+
+      _(columns).times(function(){
+        $seatNum = $('<div></div>').addClass('seat-num');
+        $seatNum.text(count ++);
+        $seatNum.appendTo($seatNumRow);
+        $seatNumRow.appendTo($row);
+      });
+
+    }
 
   }, 
 
@@ -63,6 +73,13 @@ app.PlaneView = Backbone.View.extend({
   createPlane: function(event){
     event.preventDefault();
 
+    var rowInt = parseInt($('#rows').val());
+    var colInt = parseInt($('#columns').val());
+
+    if(rowInt > 26 || colInt > 15){
+      alert('Sorry, a plane can have no more than 15 columns and 26 rows.');
+    }else{
+
     var name = $('#name').val();
     var rows = $('#rows').val();
     var columns = $('#columns').val();
@@ -74,8 +91,8 @@ app.PlaneView = Backbone.View.extend({
     });
 
     plane.save()
-    console.log(plane.toJSON()); 
 
+    }
 
   }, 
 
@@ -89,12 +106,3 @@ app.PlaneView = Backbone.View.extend({
   }
 
 });
-
-
-
-
-
-
-
-
-
