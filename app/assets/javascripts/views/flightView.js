@@ -10,6 +10,8 @@ app.FlightView = Backbone.View.extend({
   },
 
   render: function(){
+
+
     
     console.log('rendering FlightView collection:', this.collection); 
     var newFlightViewHTML = $('#newFlightView-template').html();
@@ -18,12 +20,16 @@ app.FlightView = Backbone.View.extend({
     $('#show-flights').html(flightsViewHTML);
 
     app.burningFlights.fetch().done(function (result) {
+
+
+   
     
 
     var flightListViewTemplate = $('#flightListView-template').html();
     var flightListViewHTML = _.template(flightListViewTemplate);
 
       // iterates through all flights and gets plane name for flight table
+
       for (var i = 0; i < app.burningFlights.models.length; i++) {
 
         var currentPlane = app.burningPlanes.get(app.burningFlights.models[i].attributes.plane_id);
