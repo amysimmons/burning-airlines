@@ -31,10 +31,12 @@ app.AppRouter = Backbone.Router.extend({
   viewFlight: function (id) {
     $('#main').empty();
     console.log('viewFlight');
+    app.burningPlanes.fetch().done(function () {
       var flight = app.burningFlights.get(id); 
       var flightView = new app.FlightView({model: flight}); 
-      flightView.render(); 
-  
+      flightView.render();
+    }); 
+   
     }, 
 
   viewBook:function(id){

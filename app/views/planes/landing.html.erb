@@ -14,18 +14,18 @@
 <script id="newPlaneView-template" type="text/x-template">
   <h2>Create Plane</h2> 
   <form> 
-
     <div>
       <label for="name">Name</label><br> 
       <input id="name" placeholder="Name"></label> 
     </div> 
     <div>
       <label for="rows">Rows</label><br>
-      <input type="number" id="rows" placeholder="Rows"></input> 
+      <input type="number" id="rows" max='26' min='1' placeholder="Rows"></input> 
     </div> 
     <div>
       <label for="columns">Columns</label><br>
-      <input type="number" id="columns" placeholder="Columns"></input> 
+      <input type="number" id="columns" min='1' placeholder="Columns"></input> 
+    </div> 
     </div><br>
       <button id="save-plane">Save</button> 
       <button id="cancel-plane">Cancel</button> 

@@ -3,27 +3,25 @@ var app = app || {};
 app.FlightView = Backbone.View.extend({
   el: '#main',
   events: {
-    'click #create-flight': 'createFlight', 
+    'click #create-flight': 'createFlight',
     'click #save-flight': 'showFlight',
-    'click #cancel-flight': 'clearFlight', 
+    'click #cancel-flight': 'clearFlight',
     'click a': 'showSeats'
   },
+  render: function() {
 
-  render: function(){
-    
-    console.log('rendering FlightView collection:', this.collection); 
     var newFlightViewHTML = $('#newFlightView-template').html();
     var flightsViewHTML = $('#flightsView-template').html();
-    this.$el.html(newFlightViewHTML); 
+    this.$el.html(newFlightViewHTML);
     $('#show-flights').html(flightsViewHTML);
 
-    app.burningFlights.fetch().done(function () {
-    
+    app.burningFlights.fetch().done(function(result) {
 
-    var flightListViewTemplate = $('#flightListView-template').html();
-    var flightListViewHTML = _.template(flightListViewTemplate);
+      var flightListViewTemplate = $('#flightListView-template').html();
+      var flightListViewHTML = _.template(flightListViewTemplate);
 
       // iterates through all flights and gets plane name for flight table
+
       for (var i = 0; i < app.burningFlights.models.length; i++) {
 
         var currentPlane = app.burningPlanes.get(app.burningFlights.models[i].attributes.plane_id);
@@ -32,19 +30,20 @@ app.FlightView = Backbone.View.extend({
           app.burningFlights.models[i].attributes.name = name;
 
           // calc reamining seats 
-          var totalSeats = currentPlane.attributes.rows * currentPlane.attributes.columns 
+          var totalSeats = currentPlane.attributes.rows * currentPlane.attributes.columns
           var bookedSeats = app.burningFlights.models[i].attributes.reservations.length
           var remainingSeats = totalSeats - bookedSeats
-          
+
           // creates options to pass both flight and reservation information to the template
-          var options = {flight: app.burningFlights.models[i].attributes, seats: remainingSeats}
+          var options = {
+            flight: app.burningFlights.models[i].attributes,
+            seats: remainingSeats
+          }
 
           var compiledHTML = flightListViewHTML(options)
           $("thead.thead").append(compiledHTML);
         }
-
       };
-
     });
     // iterates through all planes and get plane names for the select dropdown
     for (var i = 0; i < app.burningPlanes.models.length; i++) {
@@ -54,10 +53,9 @@ app.FlightView = Backbone.View.extend({
       $option.text(name);
       $option.appendTo($('.choose-plane'));
     };
-
   },
 
-  createFlight: function(event){
+  createFlight: function(event) {
     console.log('creating flight');
 
     event.preventDefault();
@@ -69,29 +67,23 @@ app.FlightView = Backbone.View.extend({
     var id = $(".choose-plane option:selected").data("id");
 
     var flight = new app.Flight({
-      flight_number: flightNumber, 
-      origin: origin, 
-      destination: destination, 
-      date: date, 
+      flight_number: flightNumber,
+      origin: origin,
+      destination: destination,
+      date: date,
       plane_id: id
     });
 
     var view = this;
-    flight.save().done(function () {
+    flight.save().done(function() {
       view.render();
     });
 
-  }, 
+  },
 
-  showSeats: function (result) {
-  var id = result.currentTarget.id 
-
-  app.appRouter.navigate('flights/'+ id, true); 
-
-
-
-
-}
+  showSeats: function(result) {
+    var id = result.currentTarget.id;
+    app.appRouter.navigate('flights/' + id, true);
+  }
 
 });
-
