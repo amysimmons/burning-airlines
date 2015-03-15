@@ -28,7 +28,7 @@ app.PlaneView = Backbone.View.extend({
     var rowLetters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     var index = _.indexOf(rowLetters, 'a')
 
-    $('<p/>').text(name).addClass('plane-name').appendTo('#show-plane');
+    $('<h3/>').text(name).addClass('plane-name').appendTo('#show-plane');
 
      _(rows).times(function(){
 

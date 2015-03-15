@@ -123,35 +123,57 @@ input, select {
   font-family: Helvetica, Arial;
 }
 
+/*create plane view*/
+
+#show-plane {
+  margin: auto;
+
+}
+
+.plane-name{
+  text-transform: uppercase;
+  font-weight:bold;
+  font-size: 20px;
+}
+
 .row {
   display: block;
 }
 
-.seat {
-  width: 10px;
-  height: 10px;
-  border: 1px solid #000;
+.row-letter {
   display: inline-block;
+  width: 50px;
+  height: 50px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
 }
 
-.seat-num {
+.seat {
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgb(183, 199, 216);
+  background-color: rgb(9, 37, 65);
+  border-radius: 3px;
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  padding-left: 1px;
-  padding-right: 1px;
 }
 
 .seat-num-row {
   margin-left: 10px;
 }
 
-.row-letter {
+.seat-num {
   display: inline-block;
-  width: 10px;
-  height: 10px;
-  text-transform: uppercase;
+  width: 50px;
+  height: 50px;
+  padding-left: 1px;
+  padding-right: 1px;
+  font-weight: bold;
+  font-size: 20px;
 }
+
+/*end create pane styles*/
 
 .booked {
   background-color: red;
