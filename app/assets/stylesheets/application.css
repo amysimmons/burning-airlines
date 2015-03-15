@@ -15,7 +15,6 @@
  *= require_self
  */
 
-
 /*homepage styles*/
 
 body {
@@ -26,6 +25,8 @@ body {
   background-attachment: fixed;
   background-position: center;
   background-size: cover;
+  font-size: 20px;
+  text-align: center;
 }
 
 header {
@@ -75,7 +76,7 @@ h2 {
 }
 
 .main-container {
-  margin-top: 200px;
+  margin-top: 300px;
   margin-bottom: 100px;
 }
 
@@ -110,7 +111,7 @@ label {
 input, select {
   /*display: inline-block;*/
   width: 200px;
-  background-color: #F5F2E9;
+  background-color: #fff;
   margin: 0.2em auto;
   padding: 0.4em;
   border: 1px solid #ccc;
@@ -119,6 +120,10 @@ input, select {
   margin-bottom: 15px;
   font-size: 20px;
   font-family: Helvetica, Arial;
+}
+
+table {
+  margin: auto;
 }
 
 /*create plane view*/
