@@ -19,6 +19,7 @@ app.AppRouter = Backbone.Router.extend({
   viewPlane: function (id) {
     $('#main').show();
     $('#main').empty();
+    // to make views work need to comment out fetches until data has been put into the db
     app.burningPlanes.fetch().done(function () {
       var plane = app.burningPlanes.get(id); 
       var planeView = new app.PlaneView({model: plane}); 

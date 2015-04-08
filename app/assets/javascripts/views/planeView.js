@@ -86,11 +86,18 @@ app.PlaneView = Backbone.View.extend({
 
     var plane = new app.Plane({
       name: name, 
-      rows: rows, 
-      columns: columns
+      rows: parseInt(rows), 
+      columns: parseInt(columns)
     });
 
-    plane.save()
+    // changed the above to include parseInt 
+
+
+    plane.save(); 
+    app.burningPlanes.add(plane);
+
+    // added the plane to the collection -fg 
+
 
     }
 
