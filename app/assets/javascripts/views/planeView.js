@@ -66,12 +66,16 @@ app.PlaneView = Backbone.View.extend({
 
   clearPlane: function(event){
     event.preventDefault();
+    event.stopPropagation(); 
+    event.stopImmediatePropagation(); 
     $('#show-plane').empty(); 
 
   }, 
 
   createPlane: function(event){
     event.preventDefault();
+    event.stopPropagation(); 
+    event.stopImmediatePropagation(); 
 
     var rowInt = parseInt($('#rows').val());
     var colInt = parseInt($('#columns').val());

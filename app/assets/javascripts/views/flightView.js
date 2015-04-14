@@ -57,6 +57,8 @@ app.FlightView = Backbone.View.extend({
     console.log('creating flight');
 
     event.preventDefault();
+    event.stopPropagation(); 
+    event.stopImmediatePropagation();
 
     var flightNumber = $('#flight_number').val();
     var origin = $('#origin').val();

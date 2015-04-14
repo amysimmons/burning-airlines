@@ -18,6 +18,8 @@ app.SearchView = Backbone.View.extend({
     console.log('create search running');
 
     event.preventDefault();
+    event.stopPropagation(); 
+    event.stopImmediatePropagation(); 
 
     var searchViewHTML = $('#searchView-template').html();
     $('#show-search').html(searchViewHTML);

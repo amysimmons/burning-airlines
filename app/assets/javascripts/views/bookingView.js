@@ -73,6 +73,8 @@ app.BookingView = Backbone.View.extend({
 
   saveBooking: function(event) { 
       event.preventDefault();
+      event.stopPropagation(); 
+      event.stopImmediatePropagation(); 
       $('.seat-selected').removeClass('seat-selected');
       var view = this; 
       var flight_id = view.model.flight.attributes.id; 
